@@ -1,0 +1,76 @@
+{
+  "features": "Características",
+  "tournaments": "Torneos",
+  "players": "Jugadores",
+  "stats": "Estadísticas",
+  "header": {
+    "title": "Tu Carrera Futbolística",
+    "subtitle": "al Siguiente Nivel",
+    "description": "Gestiona tu perfil profesional, participa en torneos élite y conecta con clubes de todo el mundo",
+    "startNow": "Comenzar Ahora",
+    "viewFeatures": "Ver Características"
+  },
+  "statsSection": {
+    "activePlayers": "Jugadores Activos",
+    "organizedTournaments": "Torneos Organizados",
+    "associatedClubs": "Clubes Asociados",
+    "realTimeAnalysis": "Análisis en Tiempo Real",
+    "seasonPerformance": "Rendimiento por Temporada",
+    "keyStatistics": "Estadísticas Clave",
+    "goals": "Goles",
+    "assists": "Asistencias",
+    "matches": "Partidos",
+    "rating": "Rating"
+  },
+  "featuresSection": {
+    "everythingYouNeed": "Todo lo que Necesitas para Triunfar",
+    "professionalProfileTitle": "Perfil Profesional",
+    "professionalProfileFeatures1": "CV Deportivo Digital",
+    "professionalProfileFeatures2": "Estadísticas Detalladas",
+    "professionalProfileFeatures3": "Galería de Highlights",
+    "tournamentManagementTitle": "Gestión de Torneos",
+    "tournamentManagementFeatures1": "Organización Automática",
+    "tournamentManagementFeatures2": "Seguimiento en Vivo",
+    "tournamentManagementFeatures3": "Brackets Dinámicos",
+    "advancedAnalysisTitle": "Análisis Avanzado",
+    "advancedAnalysisFeatures1": "Estadísticas en Tiempo Real",
+    "advancedAnalysisFeatures2": "Rankings Dinámicos"
+  },
+  "screenshotsSection": {
+    "title": "Capturas de la Aplicación"
+  },
+  "downloadSection": {
+    "title": "Descarga RPLAY Ahora",
+    "description": "Disponible para iOS y Android",
+    "iosTitle": "App Store",
+    "iosDescription": "Para dispositivos iOS",
+    "androidTitle": "Google Play",
+    "androidDescription": "Para dispositivos Android"
+  },
+  "contactSection": {
+    "title": "Contáctanos",
+    "nameLabel": "Nombre Completo",
+    "namePlaceholder": "Ingresa tu nombre",
+    "emailLabel": "Correo Electrónico",
+    "emailPlaceholder": "Ingresa tu correo electrónico",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Escribe tu mensaje aquí...",
+    "submitButton": "Enviar Mensaje"
+  },
+  "footer": {
+    "platformDescription": "Tu plataforma profesional de fútbol",
+    "productTitle": "Producto",
+    "companyTitle": "Empresa",
+    "legalTitle": "Legal",
+    "featuresLink": "Características",
+    "tournamentsLink": "Torneos",
+    "playersLink": "Jugadores",
+    "statsLink": "Estadísticas",
+    "aboutUsLink": "Sobre Nosotros",
+    "contactLink": "Contacto",
+    "termsLink": "Términos y Condiciones",
+    "privacyLink": "Política de Privacidad",
+    "rightsReserved": "Todos los derechos reservados."
+  },
+  "downloadButton": { "text": "Descargar" }
+}

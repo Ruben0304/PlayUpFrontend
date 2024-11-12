@@ -1,0 +1,76 @@
+{
+  "features": "Funcionalidades",
+  "tournaments": "Torneios",
+  "players": "Jogadores",
+  "stats": "Estatísticas",
+  "header": {
+    "title": "Leve sua Carreira no Futebol",
+    "subtitle": "para o Próximo Nível",
+    "description": "Gerencie seu perfil profissional, participe de torneios de elite e conecte-se com clubes de todo o mundo",
+    "startNow": "Comece Agora",
+    "viewFeatures": "Ver Funcionalidades"
+  },
+  "statsSection": {
+    "activePlayers": "Jogadores Ativos",
+    "organizedTournaments": "Torneios Organizados",
+    "associatedClubs": "Clubes Associados",
+    "realTimeAnalysis": "Análise em Tempo Real",
+    "seasonPerformance": "Desempenho por Temporada",
+    "keyStatistics": "Estatísticas Chave",
+    "goals": "Gols",
+    "assists": "Assistências",
+    "matches": "Partidas",
+    "rating": "Classificação"
+  },
+  "featuresSection": {
+    "everythingYouNeed": "Tudo o que Você Precisa para Vencer",
+    "professionalProfileTitle": "Perfil Profissional",
+    "professionalProfileFeatures1": "CV Esportivo Digital",
+    "professionalProfileFeatures2": "Estatísticas Detalhadas",
+    "professionalProfileFeatures3": "Galeria de Destaques",
+    "tournamentManagementTitle": "Gestão de Torneios",
+    "tournamentManagementFeatures1": "Organização Automática",
+    "tournamentManagementFeatures2": "Acompanhamento ao Vivo",
+    "tournamentManagementFeatures3": "Chaves Dinâmicas",
+    "advancedAnalysisTitle": "Análise Avançada",
+    "advancedAnalysisFeatures1": "Estatísticas em Tempo Real",
+    "advancedAnalysisFeatures2": "Classificações Dinâmicas"
+  },
+  "screenshotsSection": {
+    "title": "Capturas da Aplicação"
+  },
+  "downloadSection": {
+    "title": "Baixe o RPLAY Agora",
+    "description": "Disponível para iOS e Android",
+    "iosTitle": "App Store",
+    "iosDescription": "Para dispositivos iOS",
+    "androidTitle": "Google Play",
+    "androidDescription": "Para dispositivos Android"
+  },
+  "contactSection": {
+    "title": "Contate-Nos",
+    "nameLabel": "Nome Completo",
+    "namePlaceholder": "Digite seu nome",
+    "emailLabel": "Endereço de Email",
+    "emailPlaceholder": "Digite seu endereço de email",
+    "messageLabel": "Mensagem",
+    "messagePlaceholder": "Escreva sua mensagem aqui...",
+    "submitButton": "Enviar Mensagem"
+  },
+  "footer": {
+    "platformDescription": "Sua plataforma profissional de futebol",
+    "productTitle": "Produto",
+    "companyTitle": "Empresa",
+    "legalTitle": "Legal",
+    "featuresLink": "Funcionalidades",
+    "tournamentsLink": "Torneios",
+    "playersLink": "Jogadores",
+    "statsLink": "Estatísticas",
+    "aboutUsLink": "Sobre Nós",
+    "contactLink": "Contato",
+    "termsLink": "Termos e Condições",
+    "privacyLink": "Política de Privacidade",
+    "rightsReserved": "Todos os direitos reservados."
+  },
+  "downloadButton": { "text": "Baixar" }
+}

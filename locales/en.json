@@ -1,0 +1,76 @@
+{
+  "features": "Features",
+  "tournaments": "Tournaments",
+  "players": "Players",
+  "stats": "Statistics",
+  "header": {
+    "title": "Take Your Football Career",
+    "subtitle": "to the Next Level",
+    "description": "Manage your professional profile, participate in elite tournaments and connect with clubs around the world",
+    "startNow": "Start Now",
+    "viewFeatures": "View Features"
+  },
+  "statsSection": {
+    "activePlayers": "Active Players",
+    "organizedTournaments": "Organized Tournaments",
+    "associatedClubs": "Associated Clubs",
+    "realTimeAnalysis": "Real-time Analysis",
+    "seasonPerformance": "Season Performance",
+    "keyStatistics": "Key Statistics",
+    "goals": "Goals",
+    "assists": "Assists",
+    "matches": "Matches",
+    "rating": "Rating"
+  },
+  "featuresSection": {
+    "everythingYouNeed": "Everything You Need to Succeed",
+    "professionalProfileTitle": "Professional Profile",
+    "professionalProfileFeatures1": "Digital Sports CV",
+    "professionalProfileFeatures2": "Detailed Statistics",
+    "professionalProfileFeatures3": "Highlight Gallery",
+    "tournamentManagementTitle": "Tournament Management",
+    "tournamentManagementFeatures1": "Automatic Organization",
+    "tournamentManagementFeatures2": "Live Tracking",
+    "tournamentManagementFeatures3": "Dynamic Brackets",
+    "advancedAnalysisTitle": "Advanced Analysis",
+    "advancedAnalysisFeatures1": "Real-time Statistics",
+    "advancedAnalysisFeatures2": "Dynamic Rankings"
+  },
+  "screenshotsSection": {
+    "title": "Application Screenshots"
+  },
+  "downloadSection": {
+    "title": "Download RPLAY Now",
+    "description": "Available for iOS and Android",
+    "iosTitle": "App Store",
+    "iosDescription": "For iOS devices",
+    "androidTitle": "Google Play",
+    "androidDescription": "For Android devices"
+  },
+  "contactSection": {
+    "title": "Contact Us",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "submitButton": "Send Message"
+  },
+  "footer": {
+    "platformDescription": "Your professional football platform",
+    "productTitle": "Product",
+    "companyTitle": "Company",
+    "legalTitle": "Legal",
+    "featuresLink": "Features",
+    "tournamentsLink": "Tournaments",
+    "playersLink": "Players",
+    "statsLink": "Statistics",
+    "aboutUsLink": "About Us",
+    "contactLink": "Contact",
+    "termsLink": "Terms and Conditions",
+    "privacyLink": "Privacy Policy",
+    "rightsReserved": "All rights reserved."
+  },
+  "downloadButton": { "text": "Download" }
+}

@@ -1,4 +1,21 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import './assets/tailwind.css'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+import './assets/tailwind.css'
+import i18n from '../i18n' // Asegúrate de que el archivo i18n.js esté bien importado
+
+// Inicializar AOS
+AOS.init({
+    duration: 800,
+    once: true
+})
+
+// Inicializar los iconos de Lucide
+import { createIcons, icons } from 'lucide'
+createIcons({ icons })
+
+app.use(i18n).mount('#app')
