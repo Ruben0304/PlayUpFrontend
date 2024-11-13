@@ -59,7 +59,7 @@
             <BarChart2 class="w-5 h-5" />
             <span>{{ $t('stats') }}</span>
           </a>
-          <div class="pt-2 space-y-2">
+          <div class="pt-6 space-y-6">
             <DownloadButton class="w-full" />
             <LanguageSwitcher class="w-full" />
           </div>
