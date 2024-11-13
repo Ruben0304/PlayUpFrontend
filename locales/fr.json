@@ -4,9 +4,9 @@
   "players": "Joueurs",
   "stats": "Statistiques",
   "header": {
-    "title": "Faites Progresser Votre Carrière Footballistique",
+    "title": "Progressez dans le foot",
     "subtitle": "au Niveau Supérieur",
-    "description": "Gérez votre profil professionnel, participez à des tournois d'élite et connectez-vous avec des clubs du monde entier",
+    "description": "Gérez votre profil, participez à des tournois d'élite et connectez-vous avec des clubs",
     "startNow": "Commencer Maintenant",
     "viewFeatures": "Voir Les Caractéristiques"
   },
@@ -40,7 +40,7 @@
     "title": "Captures d'Écran de l'Application"
   },
   "downloadSection": {
-    "title": "Téléchargez RPLAY Maintenant",
+    "title": "Téléchargez PlayUp Maintenant",
     "description": "Disponible pour iOS et Android",
     "iosTitle": "App Store",
     "iosDescription": "Pour les appareils iOS",

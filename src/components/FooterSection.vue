@@ -4,9 +4,10 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div class="flex items-center space-x-3 mb-6">
-            <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center"><span
-                class="text-2xl font-bold">R</span></div>
-            <span class="text-xl font-bold">RPLAY</span></div>
+            <div class="w-10 h-10 rounded-full flex items-center justify-center relative overflow-hidden">
+              <img :src="logoSrc" alt="logo" class="w-full h-full object-cover">
+            </div>
+            <span class="text-xl font-bold">PlayUp</span></div>
           <p class="text-gray-400"> {{ $t('footer.platformDescription') }} </p></div>
         <div><h4 class="text-lg font-semibold mb-4">{{ $t('footer.productTitle') }}</h4>
           <ul class="space-y-2 text-gray-400">
@@ -38,7 +39,7 @@
         </div>
       </div>
       <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-        <div class="text-gray-400 mb-4 md:mb-0"> © {{ currentYear }} RPLAY. {{ $t('footer.rightsReserved') }}</div>
+        <div class="text-gray-400 mb-4 md:mb-0"> © {{ currentYear }} PlayUp. {{ $t('footer.rightsReserved') }}</div>
         <div class="flex space-x-6"><a v-for="(link, index) in socialLinks" :key="index" :href="link.url"
                                        class="text-gray-400 hover:text-orange-500 transition-colors"> <i
             :data-lucide="link.icon" class="w-6 h-6"></i> </a></div>
@@ -51,6 +52,8 @@
 import {ref} from 'vue'
 
 const currentYear = new Date().getFullYear()
+import logo from '@/assets/logo.jpg'
+const logoSrc = ref(logo)
 
 const socialLinks = ref([
   {icon: 'twitter', url: '#'},

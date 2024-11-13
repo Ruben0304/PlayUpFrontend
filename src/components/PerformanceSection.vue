@@ -1,5 +1,5 @@
 <template>
-  <section id="stats" class="py-20 relative bg-gray-800">
+  <section id="stats" class="py-20 relative ">
     <div class="max-w-7xl mx-auto px-4"><h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-16"
                                             style="color: white;"> {{ $t('statsSection.realTimeAnalysis') }} </h2>
       <!-- Stats Grid -->
