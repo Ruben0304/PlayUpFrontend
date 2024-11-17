@@ -6,7 +6,20 @@ import './assets/tailwind.css'
 
 const app = createApp(App)
 import './assets/tailwind.css'
+// Vuetify
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 import i18n from '../i18n' // Asegúrate de que el archivo i18n.js esté bien importado
+import router from './router/router'
+import { servicesPlugin } from '@/di/services'
+
+const vuetify = createVuetify({
+    components,
+    directives,
+})
+
 
 // Inicializar AOS
 AOS.init({
@@ -16,6 +29,8 @@ AOS.init({
 
 // Inicializar los iconos de Lucide
 import { createIcons, icons } from 'lucide'
+
 createIcons({ icons })
 
-app.use(i18n).mount('#app')
+app.use(servicesPlugin)
+app.use(i18n).use(router).use(vuetify).mount('#app')
