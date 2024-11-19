@@ -8,17 +8,17 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#EB6343',
-          '50': '#FDE8E4',
-          '100': '#FBD5CD',
-          '200': '#F7B0A0',
-          '300': '#F38B73',
-          '400': '#EF6646',
-          '500': '#EB6343', // Este es tu color principal
-          '600': '#D14220',
-          '700': '#9F3219',
-          '800': '#6D2211',
-          '900': '#3B120A',
+          DEFAULT: '#F93D3D', // Nuevo color principal
+          '50': '#FEE7E7',
+          '100': '#FED0D0',
+          '200': '#FCA3A3',
+          '300': '#FB7575',
+          '400': '#FA4848',
+          '500': '#F93D3D', // Color principal
+          '600': '#F70F0F',
+          '700': '#C50808',
+          '800': '#930606',
+          '900': '#610404',
         },
       },
     },

@@ -26,7 +26,7 @@
 <script setup>
 import { ref } from 'vue';
 import NavLink from './NavLink.vue';
-import logo from '@/assets/logo.jpg'
+import logo from '@/assets/logo.png'
 
 const logoSrc = ref(logo)
 

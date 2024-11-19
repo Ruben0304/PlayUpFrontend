@@ -5,7 +5,7 @@
       <div class="flex h-16">
         <!-- Logo and name -->
         <router-link to="/" class="flex items-center space-x-3 relative">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center relative overflow-hidden">
+          <div class="w-10 h-10  flex items-center justify-center relative overflow-hidden">
             <img :src="logoSrc" alt="logo" class="w-full h-full object-cover">
           </div>
           <span class="text-xl font-bold text-white">PlayUp</span>
@@ -77,7 +77,7 @@ import DownloadButton from './DownloadButton.vue'
 import LanguageSwitcher from './LenguajeSwitcher.vue'
 
 const isMenuOpen = ref(false)
-import logo from '@/assets/logo.jpg'
+import logo from '@/assets/logo.png'
 
 const logoSrc = ref(logo)
 
