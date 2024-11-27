@@ -9,6 +9,7 @@ import AdminTeams from '../screens/admin/TeamsView.vue'
 import AdminUsers from '../screens/admin/UsersView.vue'
 import AdminTournaments from '../screens/admin/TournamentsView.vue'
 import AdminOrg from '../screens/admin/OrganizationsView.vue'
+import AdminWaitlist from '../screens/admin/WaitlistAdmin.vue'
 
 const routes = [
     {
@@ -60,6 +61,11 @@ const routes = [
                 path: '/admin/tournaments',
                 name: 'AdminTournaments',
                 component: AdminTournaments
+            },
+            {
+                path: '/admin/waitlist',
+                name: 'AdminWaitlist',
+                component: AdminWaitlist
             }
         ]
     }

@@ -17,6 +17,47 @@ export class TeamService {
         }
     }
 
+    async getTeamsByTournamentSeason(tournamentSeasonId) {
+        try {
+            const { data, error } = await supabase
+                .from('team_tournament')
+                .select(`
+                    team (
+                        id,
+                        name,
+                        logo,
+                        location,
+                        code
+                    )
+                `)
+                .eq('tournament_season', tournamentSeasonId);
+
+            if (error) throw error;
+
+            return data.map(item => item.team);
+        } catch (error) {
+            console.error('Error fetching teams by tournament season:', error.message);
+            throw error;
+        }
+    }
+
+    async getTeamDetails(teamId) {
+        try {
+            const { data, error } = await supabase
+                .from('team')
+                .select('*')
+                .eq('id', teamId)
+                .single();
+
+            if (error) throw error;
+
+            return data;
+        } catch (error) {
+            console.error('Error fetching team details:', error.message);
+            throw error;
+        }
+    }
+
     async create(team) {
         try {
             const { data, error } = await supabase

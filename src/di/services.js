@@ -5,6 +5,7 @@ import {AuthService} from "@/services/authService";
 import {UserService} from "@/services/userService";
 import {TournamentService} from "@/services/tournamentService";
 import {OrganizationService} from "@/services/organizationService";
+import {CountryService} from "@/services/countryService";
 
 export const servicesPlugin = {
     install: (app) => {
@@ -14,6 +15,7 @@ export const servicesPlugin = {
         const userService = new UserService()
         const tournamentService = new TournamentService()
         const organizationService = new OrganizationService()
+        const countryService = new CountryService()
 
         // Provide the services
         app.provide('tournamentService', tournamentService)
@@ -22,5 +24,6 @@ export const servicesPlugin = {
         app.provide('authService', authService)
         app.provide('teamService', teamService)
         app.provide('playerService', playerService)
+        app.provide('countryService', countryService)
     }
 }
