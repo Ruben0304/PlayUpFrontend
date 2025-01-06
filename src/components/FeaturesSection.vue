@@ -1,6 +1,6 @@
 <template>
   <section id="features" class="py-20 relative">
-    <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900"></div>
+    <div class="absolute inset-0 gradient-background opacity-20"></div>
     <div class="relative max-w-7xl mx-auto px-4">
       <h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-16">
         {{ $t('featuresSection.everythingYouNeed') }}
@@ -32,3 +32,27 @@
 import { Users, Trophy, BarChart2 } from 'lucide-vue-next';
 import FeatureCard from './FeatureCard.vue'
 </script>
+
+<style scoped>
+section {
+  background-color: rgb(17, 24, 39);
+}
+
+.gradient-background {
+  background:
+      radial-gradient(
+          100% 100% at 50% 50%,
+          transparent 0%,
+          rgb(0, 0, 0) 100%
+      ),
+      conic-gradient(
+          from 225deg at 50% 50%,
+          #FF4D4D 0deg,
+          #4DFFFF 90deg,
+          #000066 180deg,
+          #FF4D4D 270deg,
+          #4DFFFF 360deg
+      );
+  filter: blur(50px);
+}
+</style>

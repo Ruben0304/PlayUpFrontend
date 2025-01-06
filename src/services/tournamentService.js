@@ -28,12 +28,10 @@ export class TournamentService {
             if (error) throw error;
 
             // Add the team count to each season
-            const seasonsWithTeamCount = data.map(season => ({
+            return data.map(season => ({
                 ...season,
                 teamCount: season.teams[0].count
             }));
-
-            return seasonsWithTeamCount;
         } catch (error) {
             console.error('Error fetching tournament seasons:', error.message);
             throw error;

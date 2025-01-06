@@ -1,19 +1,9 @@
 <template>
   <div class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
     <!-- Fondo con gradiente -->
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900 via-gray-900 to-primary-900/20"></div>
+    <div class="absolute inset-0 bg-background-500"></div>
 
-    <!-- Elementos decorativos animados -->
-    <div class="absolute inset-0">
-      <div
-          class="absolute w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse"
-          style="top: 10%; left: 20%;"
-      ></div>
-      <div
-          class="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-700"
-          style="bottom: 10%; right: 20%;"
-      ></div>
-    </div>
+
 
     <!-- Contenedor principal del formulario -->
     <div class="max-w-md w-full space-y-8 relative z-10" data-aos="fade-up" data-aos-duration="1000">

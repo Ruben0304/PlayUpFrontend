@@ -2,10 +2,11 @@
   <div>
     <HeroSection />
 <!--    <StatisticsSection/>-->
-    <FeaturesSection />
     <ScreenshotsSection />
+    <FeaturesSection />
+
     <PerformanceSection />
-    <DownloadSection />
+<!--    <DownloadSection />-->
 <!--    <ContactSection />-->
   </div>
 </template>
@@ -16,6 +17,6 @@ import HeroSection from '../components/HeroSection.vue'
 import FeaturesSection from '../components/FeaturesSection.vue'
 import ScreenshotsSection from '../components/ScreenshotsSection.vue'
 import PerformanceSection from '../components/PerformanceSection.vue'
-import DownloadSection from '../components/DownloadSection.vue'
+// import DownloadSection from '../components/DownloadSection.vue'
 // import ContactSection from '../components/ContactSection.vue'
 </script>

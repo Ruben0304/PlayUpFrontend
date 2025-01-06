@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed w-full z-50 rounded-lg shadow-2xl transition-all duration-300 ease-in-out hover:shadow-2xl"
+  <nav class="fixed w-full z-50 rounded-lg bg-background-500 shadow-2xl transition-all duration-300 ease-in-out hover:shadow-2xl"
        :style="navStyle">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex h-16">
@@ -40,7 +40,7 @@
     <!-- Menú móvil -->
     <div
         v-show="isMenuOpen"
-        class="md:hidden absolute top-16 left-0 right-0 bg-gray-900 bg-opacity-95 backdrop-blur-lg border-t border-gray-700"
+        class="md:hidden absolute top-16 left-0 right-0 bg-background-500 bg-opacity-95 backdrop-blur-lg border-t border-gray-700"
     >
       <div class="px-4 pt-2 pb-3 space-y-1">
         <a href="#features" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-white hover:bg-gray-700">
@@ -82,7 +82,6 @@ import logo from '@/assets/logo.png'
 const logoSrc = ref(logo)
 
 const navStyle = ref({
-  background: 'rgba(17, 24, 39, 0.7)',
   backdropFilter: 'blur(12px)',
   boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
   border: '1px solid rgba(255, 255, 255, 0.08)',

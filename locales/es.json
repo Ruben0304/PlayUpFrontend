@@ -11,6 +11,14 @@
     "startNow": "Comenzar Ahora",
     "viewFeatures": "Ver Características"
   },
+  "hero": {
+    "passion": "Tu pasión,",
+    "game": "tu juego,",
+    "story": "tu historia:",
+    "everything": "Todo en",
+    "description": "Potenciando tu desarrollo y conectándote con nuevas oportunidades en el fútbol amateur.",
+    "start": "EMPEZAR"
+  },
   "statsSection": {
     "activePlayers": "Jugadores Activos",
     "organizedTournaments": "Torneos Organizados",

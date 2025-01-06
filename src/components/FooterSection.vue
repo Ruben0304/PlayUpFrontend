@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-900 py-12 border-t border-gray-800">
+  <footer class="bg-background-500 py-12 border-t border-gray-800">
     <div class="max-w-7xl mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
@@ -23,18 +23,18 @@
         </div>
         <div><h4 class="text-lg font-semibold mb-4">{{ $t('footer.companyTitle') }}</h4>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="/sobre-nosotros" class="hover:text-orange-500 transition-colors">{{
+            <li><router-link to="/about-us" class="hover:text-orange-500 transition-colors">{{
                 $t('footer.aboutUsLink')
-              }}</a></li>
+              }}</router-link></li>
             <li><a href="#" class="hover:text-orange-500 transition-colors">{{ $t('footer.contactLink') }}</a></li>
           </ul>
         </div>
         <div><h4 class="text-lg font-semibold mb-4">{{ $t('footer.legalTitle') }}</h4>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="/terminos" class="hover:text-orange-500 transition-colors">{{ $t('footer.termsLink') }}</a>
+            <li><router-link to="/terms-conditions" class="hover:text-orange-500 transition-colors">{{ $t('footer.termsLink') }}</router-link>
             </li>
-            <li><a href="/politica-privacidad"
-                   class="hover:text-orange-500 transition-colors">{{ $t('footer.privacyLink') }}</a></li>
+            <li><router-link to="/privacy-policy"
+                   class="hover:text-orange-500 transition-colors">{{ $t('footer.privacyLink') }}</router-link></li>
           </ul>
         </div>
       </div>

@@ -1,84 +1,84 @@
 <template>
-  <section class="my-12">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-2xl font-bold mb-6 text-white">{{ $t('screenshotsSection.title') }}</h2>
-      <div class="relative">
-        <div class="carousel" ref="carousel">
-          <div v-for="(screenshot, index) in screenshots" :key="index" class="carousel-item">
-            <div class="card">
-              <img :src="screenshot" :alt="`Screenshot ${index + 1}`" class="w-full h-full object-cover rounded-lg shadow-lg opacity-70 transition-opacity duration-300 hover:opacity-100"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg"></div>
-            </div>
-          </div>
-        </div>
-        <button @click="scrollCarousel('prev')" class="carousel-prev absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200 focus:outline-none transition-colors duration-300">
-          <i data-lucide="chevron-left" class="w-6 h-6 text-gray-600"></i>
-        </button>
-        <button @click="scrollCarousel('next')" class="carousel-next absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200 focus:outline-none transition-colors duration-300">
-          <i data-lucide="chevron-right" class="w-6 h-6 text-gray-600"></i>
-        </button>
+  <section class="bg-background-500 text-white py-12 md:py-20 px-4">
+    <div
+        class="container mx-auto flex flex-col-reverse md:flex-row
+             items-center justify-between"
+    >
+      <!-- TEXTO -->
+      <div class="w-full md:w-1/2 mt-8 md:mt-0">
+        <!-- Título -->
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+          Organiza tus torneos
+          <span class="text-primary-500">fácilmente</span> con PlayUp.
+        </h2>
+
+        <!-- Descripción breve -->
+        <p class="text-gray-300 text-lg mb-6">
+          Simplifica tu trabajo y ofrece una experiencia única a jugadores y fans.
+        </p>
+
+        <!-- Lista de puntos -->
+        <ul class="text-gray-300 space-y-3">
+          <li class="flex items-start">
+            <span class="text-primary-500 mr-2">✓</span>
+            Generación automatizada de partidos.
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-500 mr-2">✓</span>
+            Estadísticas en Tiempo Real.
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-500 mr-2">✓</span>
+            Tablas de posiciones automatizadas.
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-500 mr-2">✓</span>
+            Participación de equipos externos.
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-500 mr-2">✓</span>
+            Gestión integral de inscripciones.
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-500 mr-2">✓</span>
+            Capitanes inscriben sus equipos.
+          </li>
+        </ul>
       </div>
+
+      <!-- MOCKUPS -->
+      <div
+          class="w-full md:w-1/2 flex items-center justify-center relative gap-4"
+          data-aos="fade-up"
+      data-aos-duration="800"
+      >
+      <!-- Mockup 1 -->
+      <img
+          src="@/assets/phone3.png"
+          alt="Mockup 1"
+          class="w-32 sm:w-36 md:w-40 lg:w-44 shadow-md"
+      />
+      <!-- Mockup 2 -->
+      <img
+          src="@/assets/phone4.png"
+          alt="Mockup 2"
+          class="w-32 sm:w-36 md:w-40 lg:w-44 shadow-md"
+      />
+    </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-
-const carousel = ref(null)
-const screenshots = ref([])
-
-const loadScreenshots = () => {
-  const screenshotCount = 6  // Número de capturas de pantalla
-  for (let i = 1; i <= screenshotCount; i++) {
-    screenshots.value.push(require(`@/assets/screenshots/c${i}.jpg`))
-  }
-}
-
-const scrollCarousel = (direction) => {
-  if (carousel.value) {
-    const scrollAmount = direction === 'next' ? carousel.value.offsetWidth : -carousel.value.offsetWidth
-    carousel.value.scrollBy({
-      left: scrollAmount,
-      behavior: 'smooth'
-    })
-  }
-}
-
-onMounted(() => {
-  loadScreenshots()
-  // Initialize any necessary carousel functionality
-})
+/*
+  - Si no necesitas lógica adicional,
+    puedes dejarlo vacío o eliminarlo.
+*/
 </script>
 
-
 <style scoped>
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
-
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-item {
-  flex: 0 0 300px;
-  height: 400px;
-  scroll-snap-align: start;
-  position: relative;
-  margin: 0 10px;
-}
-
-.card {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-}
+/*
+  Sin animación continua; solo tienes fade-up (u otra) con AOS al entrar.
+  No necesitas keyframes ni animación permanente aquí.
+*/
 </style>
