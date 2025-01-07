@@ -1,38 +1,37 @@
 <template>
   <div class="min-h-screen bg-background-500 relative overflow-hidden flex items-center">
     <div class="container mx-auto px-4 md:px-6 py-12 md:py-0">
-      <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0">
+      <div class="flex flex-col md:flex-row items-center justify-between  space-y-8 md:space-y-0 sm:space-y-0">
         <!-- Text Content -->
         <div
-            class="w-full md:w-1/2 text-white z-10 mb-8 md:mb-0 mt-8 md:mt-0"
+            class="w-full md:w-1/2 text-white z-10 mt-20 md:mt-0 mb-8 md:mb-0 flex flex-col gap-6 md:gap-8"
             data-aos="fade-right"
             data-aos-delay="100"
         >
           <h1
-              class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight
-                   text-center md:text-left px-2 md:px-0"
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight
+               md:text-left px-1 md:px-0"
               ref="heroText"
           >
-            <span>
-              {{ $t('hero.passion') }}&nbsp;{{ $t('hero.game') }}&nbsp;
-              {{ $t('hero.story') }}&nbsp;{{ $t('hero.everything') }}
-              <span class="text-primary-500">PlayUp</span>.
-            </span>
+        <span>
+            {{ $t('hero.passion') }}&nbsp;{{ $t('hero.game') }}&nbsp;{{ $t('hero.story') }}&nbsp;{{ $t('hero.everything') }}
+            <span class="text-primary-500">PlayUp</span>.
+        </span>
           </h1>
 
           <p
               class="text-primary-100 text-sm sm:text-md md:text-lg lg:text-xl max-w-lg
-                   text-center md:text-left mt-4 px-2 md:px-0"
+               md:text-left px-2 md:px-0"
               ref="heroDescription"
           >
             {{ $t('hero.description') }}
           </p>
 
-          <div class="flex justify-center md:justify-start mt-4 md:mt-6 px-2 md:px-0">
+          <div class="flex md:justify-start px-2 md:px-0">
             <button
                 class="bg-primary-500 hover:bg-primary-600 text-white px-6 md:px-8 py-2 md:py-3
-                     rounded text-base md:text-lg font-semibold transition-all duration-300
-                     transform hover:scale-105"
+                   rounded text-base md:text-lg font-semibold transition-all duration-300
+                   transform hover:scale-105"
                 ref="startButton"
             >
               {{ $t('hero.start') }}
@@ -41,7 +40,7 @@
 
           <!-- Store Links -->
           <div
-              class="flex justify-center md:justify-start space-x-4 pt-4 md:pt-6 px-2 md:px-0"
+              class="flex justify-start space-x-4 pt-4 md:pt-6 px-2 md:px-0"
               ref="storeLinks"
           >
             <a href="#" class="transform hover:scale-105 transition-transform">
@@ -60,6 +59,7 @@
             </a>
           </div>
         </div>
+
 
         <!-- Phone Images -->
         <div

@@ -12,7 +12,7 @@
           <div class="space-y-8">
             <div class="prose prose-invert">
               <p class="text-gray-300">Los siguientes Términos y Condiciones (en adelante, "Términos") rigen el uso de
-                la aplicación Rplay (en adelante, "la Aplicación"). Al utilizar la Aplicación, usted acepta cumplir con
+                la aplicación PlayUp (en adelante, "la Aplicación"). Al utilizar la Aplicación, usted acepta cumplir con
                 estos Términos. Si no está de acuerdo con estos Términos, por favor no utilice la Aplicación.</p>
             </div>
 
@@ -42,11 +42,11 @@
               <div class="pl-4 space-y-4">
                 <h3 class="text-xl font-semibold text-white">3.1. Derechos de Propiedad</h3>
                 <p class="text-gray-300">Todos los derechos de propiedad intelectual de la Aplicación y su contenido son
-                  propiedad de Rplay o de terceros. Usted no tiene derecho a utilizar ningún contenido de la Aplicación
+                  propiedad de PlayUp o de terceros. Usted no tiene derecho a utilizar ningún contenido de la Aplicación
                   de manera que no esté expresamente permitida por estos Términos.</p>
 
                 <h3 class="text-xl font-semibold text-white">3.2. Contenido Generado por el Usuario</h3>
-                <p class="text-gray-300">Si envía o publica contenido en la Aplicación, usted otorga a Rplay una
+                <p class="text-gray-300">Si envía o publica contenido en la Aplicación, usted otorga a PlayUp una
                   licencia no exclusiva para utilizar, reproducir, modificar y distribuir dicho contenido en relación
                   con la Aplicación.</p>
               </div>
@@ -54,7 +54,7 @@
 
             <section class="space-y-4">
               <h2 class="text-2xl font-bold text-primary-500">4. Actualizaciones y Cambios</h2>
-              <p class="text-gray-300">Rplay se reserva el derecho de realizar actualizaciones y cambios en la
+              <p class="text-gray-300">PlayUp se reserva el derecho de realizar actualizaciones y cambios en la
                 Aplicación en cualquier momento. Estos cambios pueden incluir la adición o eliminación de
                 características y funcionalidades.</p>
             </section>
@@ -66,22 +66,22 @@
                 <p class="text-gray-300">Puede dejar de utilizar la Aplicación en cualquier momento. Si tiene una cuenta
                   de usuario, puede eliminarla siguiendo las instrucciones proporcionadas en la Aplicación.</p>
 
-                <h3 class="text-xl font-semibold text-white">5.2. Terminación por Rplay</h3>
-                <p class="text-gray-300">Rplay se reserva el derecho de terminar su acceso a la Aplicación en caso de
+                <h3 class="text-xl font-semibold text-white">5.2. Terminación por PlayUp</h3>
+                <p class="text-gray-300">PlayUp se reserva el derecho de terminar su acceso a la Aplicación en caso de
                   incumplimiento de estos Términos o por cualquier otra razón.</p>
               </div>
             </section>
 
             <section class="space-y-4">
               <h2 class="text-2xl font-bold text-primary-500">6. Limitación de Responsabilidad</h2>
-              <p class="text-gray-300">Rplay no se hace responsable de ningún daño directo, indirecto, incidental,
+              <p class="text-gray-300">PlayUp no se hace responsable de ningún daño directo, indirecto, incidental,
                 especial, consecuente o punitivo resultante del uso de la Aplicación o de la interrupción de su
                 funcionamiento.</p>
             </section>
 
             <section class="space-y-4">
               <h2 class="text-2xl font-bold text-primary-500">7. Cambios en los Términos y Condiciones</h2>
-              <p class="text-gray-300">Rplay se reserva el derecho de actualizar o modificar estos Términos en cualquier
+              <p class="text-gray-300">PlayUp se reserva el derecho de actualizar o modificar estos Términos en cualquier
                 momento. Los cambios significativos se notificarán a los usuarios a través de la Aplicación. Le
                 recomendamos revisar estos Términos periódicamente.</p>
             </section>

@@ -21,9 +21,9 @@
           <!-- Sección: ¿Quiénes somos? -->
           <section class="space-y-4">
             <h1 class="text-4xl font-bold text-primary-500">¿Quiénes somos?</h1>
-            <!-- Reemplazamos Rplay por PLayup -->
+            <!-- Reemplazamos Rplay por PlayUp -->
             <p class="text-gray-300">
-              Somos <strong>PLayup</strong>, un grupo de jóvenes innovadores con el objetivo de desarrollar y
+              Somos <strong>PlayUp</strong>, un grupo de jóvenes innovadores con el objetivo de desarrollar y
               ofrecer un servicio para todas aquellas personas que les gusta y les apasiona el deporte.
             </p>
           </section>

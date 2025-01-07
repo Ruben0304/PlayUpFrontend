@@ -11,7 +11,7 @@
 
           <div class="prose prose-invert max-w-none">
             <p class="text-gray-300 mb-8">
-              La presente Política de Privacidad tiene como objetivo informar a los usuarios de la aplicación Rplay (en
+              La presente Política de Privacidad tiene como objetivo informar a los usuarios de la aplicación PlayUp (en
               adelante, "la Aplicación") sobre cómo se recopilan, utilizan y protegen sus datos personales. Valoramos la
               privacidad de nuestros usuarios y estamos comprometidos a garantizar la seguridad y confidencialidad de la
               información proporcionada. Al utilizar la Aplicación, usted acepta esta Política de Privacidad.
@@ -48,7 +48,7 @@
                 <div>
                   <h3 class="text-xl font-semibold text-white mb-3">2.1. Proporcionar Servicios</h3>
                   <p class="text-gray-300">
-                    Utilizamos su información para brindarle servicios relacionados con Rplay, como la visualización de
+                    Utilizamos su información para brindarle servicios relacionados con PlayUp, como la visualización de
                     partidos, resultados y estadísticas.
                   </p>
                 </div>
@@ -146,7 +146,7 @@
 
             <div class="mt-8 p-6 bg-gray-700 bg-opacity-50 rounded-lg">
               <p class="text-gray-300">
-                Al utilizar la Aplicación Rplay, usted acepta esta Política de Privacidad. Le agradecemos su confianza y
+                Al utilizar la Aplicación PlayUp, usted acepta esta Política de Privacidad. Le agradecemos su confianza y
                 esperamos que disfrute de su experiencia en nuestra aplicación de fútbol.
               </p>
             </div>
