@@ -53,7 +53,7 @@ async function loadPlayerCountData() {
     playerCountData.value = await countryService.getPlayerCountByCountry()
   } catch (e) {
     error.value = t('errorLoadingPlayerCount')
-    console.error('Error loading player count data:', e)
+    console.error('error loading player count data:', e)
   } finally {
     loading.value = false
   }

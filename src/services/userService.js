@@ -17,7 +17,7 @@ export class UserService {
                 login_count: user.login_count
             }));
         } catch (error) {
-            console.error('Error fetching users with roles:', error.message);
+            console.error('error fetching users with roles:', error.message);
             throw error;
         }
     }
@@ -35,7 +35,7 @@ export class UserService {
             return { success: true, message: `Usuario ${userId} ha sido baneado` };
 
         } catch (error) {
-            console.error('Error al banear usuario:', error.message);
+            console.error('error al banear usuario:', error.message);
             return { success: false, error: error.message };
         }
     }
@@ -54,7 +54,7 @@ export class UserService {
             return { success: true, message: `Usuario ${userId} ha sido desbaneado` };
 
         } catch (error) {
-            console.error('Error al desbanear usuario:', error.message);
+            console.error('error al desbanear usuario:', error.message);
             return { success: false, error: error.message };
         }
     }
@@ -83,7 +83,7 @@ export class UserService {
                 avatar_url: waitlistItem.user.avatar_url
             }));
         } catch (error) {
-            console.error('Error fetching waitlist users:', error.message);
+            console.error('error fetching waitlist users:', error.message);
             throw error;
         }
     }
@@ -99,7 +99,7 @@ export class UserService {
             return { success: true, message: 'Usuario aceptado exitosamente' };
 
         } catch (error) {
-            console.error('Error al aceptar usuario:', error.message);
+            console.error('error al aceptar usuario:', error.message);
             return { success: false, error: error.message };
         }
     }
@@ -110,7 +110,7 @@ export class UserService {
             if (error) throw error
             return data
         } catch (error) {
-            console.error('Error fetching user sign-ins per day:', error.message)
+            console.error('error fetching user sign-ins per day:', error.message)
             throw error
         }
     }

@@ -27,7 +27,7 @@
       <!-- Loading state -->
       <LoaderComponent v-if="loading"/>
 
-      <!-- Error state -->
+      <!-- error state -->
       <div v-else-if="error" class="p-4 text-center text-red-600">
         {{ error }}
       </div>
@@ -212,7 +212,7 @@ async function loadTournaments() {
     await loadStatusCounts()
   } catch (e) {
     error.value = t('errorLoadingTournaments')
-    console.error('Error loading tournaments:', e)
+    console.error('error loading tournaments:', e)
   } finally {
     loading.value = false
   }
@@ -222,7 +222,7 @@ async function loadStatusCounts() {
   try {
     statusCounts.value = await tournamentService.getTournamentStatusCounts()
   } catch (e) {
-    console.error('Error loading status counts:', e)
+    console.error('error loading status counts:', e)
   }
 }
 
@@ -241,7 +241,7 @@ async function viewSeasons(tournamentId) {
   try {
     seasons.value = await tournamentService.getTournamentSeasons(tournamentId)
   } catch (e) {
-    console.error('Error loading seasons:', e)
+    console.error('error loading seasons:', e)
   } finally {
     loadingSeasons.value = false
   }
@@ -298,7 +298,7 @@ async function saveTournament() {
     showEditTournamentModal.value = false
     alert(t('updateSuccess'))
   } catch (error) {
-    console.error('Error updating tournament:', error)
+    console.error('error updating tournament:', error)
     alert(t('updateError'))
   }
 }
@@ -326,7 +326,7 @@ async function saveSeason() {
     showEditSeasonModal.value = false
     alert(t('updateSuccess'))
   } catch (error) {
-    console.error('Error updating season:', error)
+    console.error('error updating season:', error)
     alert(t('updateError'))
   }
 }

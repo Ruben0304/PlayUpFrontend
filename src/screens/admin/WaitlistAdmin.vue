@@ -10,7 +10,7 @@
       <!-- Loading state -->
       <LoaderComponent v-if="loading"/>
 
-      <!-- Error state -->
+      <!-- error state -->
       <div v-else-if="error" class="p-4 text-center text-red-600">
         {{ error }}
       </div>
@@ -89,7 +89,7 @@ const handleAcceptUser = async (waitlistId) => {
       await loadWaitlistUsers();
     }
   } catch (error) {
-    console.error('Error al aceptar usuario:', error);
+    console.error('error al aceptar usuario:', error);
   } finally {
     loading.value = false;
   }
@@ -103,7 +103,7 @@ async function loadWaitlistUsers() {
     console.log('Waitlist users:', waitlistUsers.value);
   } catch (e) {
     error.value = t('errorLoadingWaitlist')
-    console.error('Error loading waitlist:', e)
+    console.error('error loading waitlist:', e)
   } finally {
     loading.value = false
   }

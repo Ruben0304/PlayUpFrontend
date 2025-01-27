@@ -11,7 +11,7 @@ export class PlayerService {
 
             return data
         } catch (error) {
-            console.error('Error fetching players:', error.message)
+            console.error('error fetching players:', error.message)
             throw error
         }
     }
@@ -28,7 +28,7 @@ export class PlayerService {
 
             return data
         } catch (error) {
-            console.error('Error creating player:', error.message)
+            console.error('error creating player:', error.message)
             throw error
         }
     }
@@ -46,7 +46,7 @@ export class PlayerService {
 
             return data
         } catch (error) {
-            console.error('Error updating player:', error.message)
+            console.error('error updating player:', error.message)
             throw error
         }
     }
@@ -62,7 +62,7 @@ export class PlayerService {
 
             return true
         } catch (error) {
-            console.error('Error deleting player:', error.message)
+            console.error('error deleting player:', error.message)
             throw error
         }
     }

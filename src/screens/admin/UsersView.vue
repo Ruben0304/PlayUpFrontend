@@ -19,7 +19,7 @@
       <!-- Loading state -->
       <LoaderComponent v-if="loading"/>
 
-      <!-- Error state -->
+      <!-- error state -->
       <div v-else-if="error" class="p-4 text-center text-red-600">
         {{ error }}
       </div>
@@ -95,7 +95,7 @@ const handleBanToggle = async (userId, is_banned) => {
     await loadUsers();
 
   } catch (error) {
-    console.error('Error al cambiar estado de baneo:', error);
+    console.error('error al cambiar estado de baneo:', error);
   } finally {
     loading.value = false;
   }
@@ -121,7 +121,7 @@ async function loadUsers() {
     users.value = await userService.getAllUsersWithRoles(searchTerm.value)
   } catch (e) {
     error.value = t('errorLoadingUsers')
-    console.error('Error loading users:', e)
+    console.error('error loading users:', e)
   } finally {
     loading.value = false
   }

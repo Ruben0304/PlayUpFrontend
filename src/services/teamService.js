@@ -12,7 +12,7 @@ export class TeamService {
 
             return data
         } catch (error) {
-            console.error('Error fetching teams:', error.message)
+            console.error('error fetching teams:', error.message)
             throw error
         }
     }
@@ -36,7 +36,7 @@ export class TeamService {
 
             return data.map(item => item.team);
         } catch (error) {
-            console.error('Error fetching teams by tournament season:', error.message);
+            console.error('error fetching teams by tournament season:', error.message);
             throw error;
         }
     }
@@ -53,7 +53,7 @@ export class TeamService {
 
             return data;
         } catch (error) {
-            console.error('Error fetching team details:', error.message);
+            console.error('error fetching team details:', error.message);
             throw error;
         }
     }
@@ -70,7 +70,7 @@ export class TeamService {
 
             return data
         } catch (error) {
-            console.error('Error creating team:', error.message)
+            console.error('error creating team:', error.message)
             throw error
         }
     }
@@ -88,7 +88,7 @@ export class TeamService {
 
             return data
         } catch (error) {
-            console.error('Error updating team:', error.message)
+            console.error('error updating team:', error.message)
             throw error
         }
     }
@@ -104,7 +104,7 @@ export class TeamService {
 
             return true
         } catch (error) {
-            console.error('Error deleting team:', error.message)
+            console.error('error deleting team:', error.message)
             throw error
         }
     }

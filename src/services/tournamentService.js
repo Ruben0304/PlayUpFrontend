@@ -33,7 +33,7 @@ export class TournamentService {
                 teamCount: season.teams[0].count
             }));
         } catch (error) {
-            console.error('Error fetching tournament seasons:', error.message);
+            console.error('error fetching tournament seasons:', error.message);
             throw error;
         }
     }
@@ -75,7 +75,7 @@ export class TournamentService {
                 season_count: tournament.tournament_season ? tournament.tournament_season.length : 0
             }));
         } catch (error) {
-            console.error('Error fetching tournaments with organizations:', error.message);
+            console.error('error fetching tournaments with organizations:', error.message);
             throw error;
         }
     }
@@ -117,7 +117,7 @@ export class TournamentService {
 
             return statusCounts;
         } catch (error) {
-            console.error('Error fetching tournament status counts:', error.message);
+            console.error('error fetching tournament status counts:', error.message);
             throw error;
         }
     }
@@ -176,7 +176,7 @@ export class TournamentService {
             if (error) throw error;
             return data;
         } catch (error) {
-            console.error('Error updating tournament:', error.message);
+            console.error('error updating tournament:', error.message);
             throw error;
         }
     }
@@ -192,7 +192,7 @@ export class TournamentService {
             if (error) throw error;
             return data;
         } catch (error) {
-            console.error('Error updating season:', error.message);
+            console.error('error updating season:', error.message);
             throw error;
         }
     }

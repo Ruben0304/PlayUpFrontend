@@ -70,7 +70,7 @@ async function loadData() {
     countTeams.value = teams.length
   } catch (e) {
     error.value = t('errorLoadingOrganizations')
-    console.error('Error loading:', e)
+    console.error('error loading:', e)
   } finally {
     loading.value = false
     stats.value = [
@@ -89,7 +89,7 @@ async function loadSignInData() {
     signInData.value = await userService.getUserSignInsPerDay()
   } catch (e) {
     signInError.value = t('errorLoadingSignInData')
-    console.error('Error loading sign-in data:', e)
+    console.error('error loading sign-in data:', e)
   } finally {
     signInLoading.value = false
   }

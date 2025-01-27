@@ -13,7 +13,7 @@
       <!-- Loading state -->
       <LoaderComponent loading="loading" v-if="loading"/>
 
-      <!-- Error state -->
+      <!-- error state -->
       <div v-else-if="error" class="p-4 text-center text-red-600">
         {{ error }}
       </div>
@@ -139,7 +139,7 @@ async function loadTeams() {
     teams.value = await teamService.getAll()
   } catch (e) {
     error.value = t('errorLoadingTeams')
-    console.error('Error loading teams:', e)
+    console.error('error loading teams:', e)
   } finally {
     loading.value = false
   }
@@ -162,7 +162,7 @@ async function deleteItem(item) {
       const index = teams.value.indexOf(item)
       teams.value.splice(index, 1)
     } catch (e) {
-      console.error('Error deleting team:', e)
+      console.error('error deleting team:', e)
       alert(t('errorDeletingTeam'))
     }
   }
@@ -188,7 +188,7 @@ async function save() {
     }
     close()
   } catch (e) {
-    console.error('Error saving team:', e)
+    console.error('error saving team:', e)
     alert(t('errorSavingTeam'))
   } finally {
     saving.value = false

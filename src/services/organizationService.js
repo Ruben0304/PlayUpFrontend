@@ -26,7 +26,7 @@ export class OrganizationService {
                 created_by_username: organization.user_organization && organization.user_organization.user ? organization.user_organization.user.username : null
             }));
         } catch (error) {
-            console.error('Error fetching organizations with creators:', error.message);
+            console.error('error fetching organizations with creators:', error.message);
             throw error;
         }
     }

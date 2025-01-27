@@ -15,7 +15,7 @@
       <!-- Loading state -->
       <LoaderComponent loading="loading" v-if="loading"/>
 
-      <!-- Error state -->
+      <!-- error state -->
       <div v-else-if="error" class="p-8 text-center">
         <AlertCircle class="w-8 h-8 text-red-500 mx-auto"/>
         <p class="mt-2 text-red-600">{{ error }}</p>
@@ -274,7 +274,7 @@ async function loadPlayers() {
     players.value = await playerService.getAll()
   } catch (e) {
     error.value = t('errorLoadingPlayers')
-    console.error('Error loading players:', e)
+    console.error('error loading players:', e)
   } finally {
     loading.value = false
   }
@@ -293,7 +293,7 @@ async function deleteItem(item) {
       const index = players.value.indexOf(item)
       players.value.splice(index, 1)
     } catch (e) {
-      console.error('Error deleting player:', e)
+      console.error('error deleting player:', e)
       alert(t('errorDeletingPlayer'))
     }
   }
@@ -324,7 +324,7 @@ async function save() {
     }
     close()
   } catch (e) {
-    console.error('Error saving player:', e)
+    console.error('error saving player:', e)
     alert(t('errorSavingTeam'))
   } finally {
     saving.value = false

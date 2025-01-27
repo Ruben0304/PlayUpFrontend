@@ -13,6 +13,8 @@ import AdminWaitlist from '../screens/admin/WaitlistAdmin.vue'
 import TermsConditions from '../screens/TermsConditions.vue'
 import PrivacyPolicy from '../screens/PrivacyPolicy.vue'
 import About from '../screens/AboutView.vue'
+import ContactView from "@/screens/ContactView.vue";
+import NotFound from "@/screens/error/NotFound.vue";
 
 const routes = [
     {
@@ -38,6 +40,11 @@ const routes = [
                 path: 'about-us',
                 name: 'About',
                 component: About
+            },
+            {
+                path: 'contact-us',
+                name: 'Contact',
+                component: ContactView
             },
             {
                 path: 'auth',
@@ -86,7 +93,13 @@ const routes = [
                 component: AdminWaitlist
             }
         ]
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: NotFound
     }
+
 ]
 
 const router = createRouter({

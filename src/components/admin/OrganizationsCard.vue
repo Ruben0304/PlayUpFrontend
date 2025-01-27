@@ -35,7 +35,7 @@ async function loadOrganizations() {
     organizations.value = await organizationService.getAllOrganizationsWithCreators()
   } catch (e) {
     error.value = t('errorLoadingOrganizations')
-    console.error('Error loading organizations:', e)
+    console.error('error loading organizations:', e)
   } finally {
     loading.value = false
   }

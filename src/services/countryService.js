@@ -28,7 +28,7 @@ export class CountryService {
                 cantidad
             })).sort((a, b) => b.cantidad - a.cantidad)
         } catch (error) {
-            console.error('Error fetching player count by country:', error.message)
+            console.error('error fetching player count by country:', error.message)
             throw error
         }
     }

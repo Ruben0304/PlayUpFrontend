@@ -10,7 +10,7 @@
       <!-- Loading state -->
       <LoaderComponent v-if="loading"/>
 
-      <!-- Error state -->
+      <!-- error state -->
       <div v-else-if="error" class="p-4 text-center text-red-600">
         {{ error }}
       </div>
@@ -56,7 +56,7 @@ async function loadOrganizations() {
     organizations.value = await organizationService.getAllOrganizationsWithCreators()
   } catch (e) {
     error.value = t('errorLoadingOrganizations')
-    console.error('Error loading organizations:', e)
+    console.error('error loading organizations:', e)
   } finally {
     loading.value = false
   }
