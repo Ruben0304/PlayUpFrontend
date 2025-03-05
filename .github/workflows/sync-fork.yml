@@ -7,7 +7,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    if: github.event.client_payload.ref == 'refs/heads/main'
+    if: github.event.client_payload.ref == 'refs/heads/master'
     
     steps:
       - name: Checkout repository
@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-          ref: main
+          ref: master
           
       - name: Configurar Git
         run: |
@@ -25,18 +25,18 @@ jobs:
       - name: Sincronizar con upstream
         run: |
           git remote add upstream https://github.com/PlayUpOrg/PlayUpFrontend.git
-          git fetch upstream main
+          git fetch upstream master
           
           # Crear una rama temporal para la fusión
           git checkout -b temp-merge-branch
           
           # Fusionar excluyendo archivos de workflow
-          git merge -X ours --no-commit upstream/main
+          git merge -X ours --no-commit upstream/master
           git reset HEAD .github/workflows/
           git checkout -- .github/workflows/
           
           # Confirmar y enviar los cambios
           git commit -m "Merge upstream changes excluding workflows"
-          git checkout main
+          git checkout master
           git merge temp-merge-branch
-          git push origin main
+          git push origin master
