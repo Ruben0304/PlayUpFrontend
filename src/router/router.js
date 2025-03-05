@@ -15,6 +15,7 @@ import PrivacyPolicy from '../screens/PrivacyPolicy.vue'
 import About from '../screens/AboutView.vue'
 import ContactView from "@/screens/ContactView.vue";
 import NotFound from "@/screens/error/NotFound.vue";
+import AccountDelete from "@/screens/AccountDelete.vue";
 
 const routes = [
     {
@@ -50,7 +51,12 @@ const routes = [
                 path: 'auth',
                 name: 'Auth',
                 component: AuthForm
-            }
+            },
+            {
+                path: 'delete-account',
+                name: 'DeleteAccount',
+                component: AccountDelete
+            },
         ]
     },
     {
@@ -91,7 +97,8 @@ const routes = [
                 path: '/admin/waitlist',
                 name: 'AdminWaitlist',
                 component: AdminWaitlist
-            }
+            },
+
         ]
     },
     {

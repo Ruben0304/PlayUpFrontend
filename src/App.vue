@@ -9,17 +9,6 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue'
-import LoaderAnimation from "@/components/LoaderAnimation.vue";
-
-const isLoading = ref(true)
-
-onMounted(() => {
-  // Simular tiempo de carga
-  setTimeout(() => {
-    isLoading.value = false
-  }, 3000) // Ajusta este valor según tus necesidades
-})
 </script>
 
 <style>
