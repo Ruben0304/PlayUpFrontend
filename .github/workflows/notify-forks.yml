@@ -3,7 +3,7 @@ name: Notify Forks
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   notify:
