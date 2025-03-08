@@ -59,19 +59,22 @@ export class UserService {
         }
     }
 
-    // En UserService
     async getWaitlistUsers() {
         try {
             const { data, error } = await supabase
                 .from('organizer_waitlist')
                 .select(`
                 id,
+                urls,
+                tournament_name,
+                email,
                 user (
                     id,
                     username,
                     avatar_url
                 )
-            `);
+            `)
+                .eq('approved', false); // Solo obtener usuarios que no han sido aprobados
 
             if (error) throw error;
 
@@ -80,7 +83,10 @@ export class UserService {
                 waitlistId: waitlistItem.id,
                 userId: waitlistItem.user.id,
                 username: waitlistItem.user.username,
-                avatar_url: waitlistItem.user.avatar_url
+                avatar_url: waitlistItem.user.avatar_url,
+                urls: waitlistItem.urls || [],
+                tournament_name: waitlistItem.tournament_name,
+                email: waitlistItem.email
             }));
         } catch (error) {
             console.error('error fetching waitlist users:', error.message);
@@ -90,16 +96,22 @@ export class UserService {
 
     async acceptWaitlistUser(waitlistId) {
         try {
-            const { error } = await supabase
-                .from('organizer_waitlist')
-                .delete()
-                .eq('id', waitlistId);
+            console.log('Accepting user with RPC, waitlistId:', waitlistId);
 
-            if (error) throw error;
-            return { success: true, message: 'Usuario aceptado exitosamente' };
+            // Llamar a la función RPC con el parámetro correcto
+            const { data, error } = await supabase
+                .rpc('update_approved_organizer_waitlist', { p_id: waitlistId });
+
+            if (error) {
+                console.error('RPC error:', error);
+                return { success: false, error: error.message };
+            }
+
+            console.log('RPC response:', data);
+            return { success: true, message: 'Usuario aceptado exitosamente mediante RPC' };
 
         } catch (error) {
-            console.error('error al aceptar usuario:', error.message);
+            console.error('Error in RPC call:', error.message);
             return { success: false, error: error.message };
         }
     }

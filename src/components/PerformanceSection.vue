@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-background-500 text-white py-12 md:py-20 px-4">
+  <section id="players" class="bg-background-500 text-white py-12 md:py-20 px-4">
     <div
         class="container mx-auto flex flex-col md:flex-row
              items-center justify-between"

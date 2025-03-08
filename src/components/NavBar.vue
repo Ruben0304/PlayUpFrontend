@@ -14,10 +14,11 @@
         <!-- Navigation links - Desktop -->
         <div class="flex-1 flex justify-center">
           <div class="hidden md:flex space-x-8">
-            <NavLink href="#features" :icon="Sparkles">{{ $t('features') }}</NavLink>
+
             <NavLink href="#tournaments" :icon="Trophy">{{ $t('tournaments') }}</NavLink>
+            <NavLink href="#features" :icon="Sparkles">{{ $t('features') }}</NavLink>
             <NavLink href="#players" :icon="Users">{{ $t('players') }}</NavLink>
-            <NavLink href="#stats" :icon="BarChart2">{{ $t('stats') }}</NavLink>
+<!--            <NavLink href="#stats" :icon="BarChart2">{{ $t('stats') }}</NavLink>-->
           </div>
         </div>
 
@@ -43,22 +44,20 @@
         class="md:hidden absolute top-16 left-0 right-0 bg-background-500 bg-opacity-95 backdrop-blur-lg border-t border-gray-700"
     >
       <div class="px-4 pt-2 pb-3 space-y-1">
-        <a href="#features" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-white hover:bg-gray-700">
-          <Sparkles class="w-5 h-5"/>
-          <span>{{ $t('features') }}</span>
-        </a>
         <a href="#tournaments" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-white hover:bg-gray-700">
           <Trophy class="w-5 h-5"/>
           <span>{{ $t('tournaments') }}</span>
         </a>
+        <a href="#features" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-white hover:bg-gray-700">
+          <Sparkles class="w-5 h-5"/>
+          <span>{{ $t('features') }}</span>
+        </a>
+
         <a href="#players" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-white hover:bg-gray-700">
           <Users class="w-5 h-5"/>
           <span>{{ $t('players') }}</span>
         </a>
-        <a href="#stats" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-white hover:bg-gray-700">
-          <BarChart2 class="w-5 h-5"/>
-          <span>{{ $t('stats') }}</span>
-        </a>
+
         <div class="pt-6 space-y-6">
           <DownloadButton class="w-full"/>
           <LanguageSwitcher class="w-full"/>
@@ -71,7 +70,7 @@
 
 <script setup>
 import {ref} from 'vue'
-import {Sparkles, Trophy, Users, BarChart2, Menu, X} from 'lucide-vue-next'
+import {Sparkles, Trophy, Users, Menu, X} from 'lucide-vue-next'
 import NavLink from './NavLinks.vue'
 import DownloadButton from './DownloadButton.vue'
 import LanguageSwitcher from './LenguajeSwitcher.vue'
