@@ -94,7 +94,7 @@
     "verificationEmailSent": "Verification email sent. Please check your inbox.",
     "resetEmailSent": "Reset email sent. Please check your inbox.",
     "emailVerified": "Email Verified!",
-    "emailVerifiedDescription": "Your email has been successfully verified.",
+    "emailVerifiedSuccess": "Your email has been successfully verified.",
     "goToApp": "Go to app",
     "errors": {
       "invalidCredentials": "Invalid email or password",

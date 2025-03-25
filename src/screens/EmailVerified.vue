@@ -8,7 +8,7 @@
           class="bg-red-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-600 transition-colors w-full"
           @click="handleOpenApp"
         >
-          {{ $t('auth.openApp') }}
+          {{ $t('auth.goToApp') }}
         </button>
       </div>
     </div>
@@ -36,7 +36,7 @@ onMounted(() => {
 
 const handleOpenApp = () => {
   // Deep link URL
-  const deepLink = 'playup://auth/verified'
+  const deepLink = 'playup://auth/email-verified'
   
   // Intentar abrir la app
   window.location.href = deepLink
@@ -49,7 +49,7 @@ const handleOpenApp = () => {
     if (/android/i.test(navigator.userAgent)) {
       window.location.href = 'https://play.google.com/store/apps/details?id=com.playup.inc'
     } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
-      window.location.href = 'https://apps.apple.com/app/id6741330857' // Reemplazar con ID de App Store
+      window.location.href = 'https://apps.apple.com/app/id6741330857'
     }
   }, 1000)
 }

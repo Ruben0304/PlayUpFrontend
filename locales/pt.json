@@ -93,9 +93,9 @@
     "sendResetLink": "Enviar Link",
     "verificationEmailSent": "E-mail de verificação enviado. Por favor, verifique sua caixa de entrada.",
     "resetEmailSent": "E-mail de redefinição enviado. Por favor, verifique sua caixa de entrada.",
-    "emailVerified": "E-mail Verificado!",
-    "emailVerifiedDescription": "Seu e-mail foi verificado com sucesso.",
-    "goToApp": "Ir para o aplicativo",
+    "emailVerified": "Email Verificado!",
+    "emailVerifiedSuccess": "Seu email foi verificado com sucesso.",
+    "goToApp": "Ir para o app",
     "errors": {
       "invalidCredentials": "Email ou senha inválidos",
       "userExists": "Já existe uma conta com este email",
