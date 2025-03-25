@@ -20,6 +20,11 @@ import EmailVerified from "@/screens/EmailVerified.vue";
 
 const routes = [
     {
+        path: '/email-verified',
+        name: 'EmailVerified',
+        component: EmailVerified
+    },
+    {
         path: '/',
         component: LayoutMain,
         children: [
@@ -57,11 +62,6 @@ const routes = [
                 path: 'delete-account',
                 name: 'DeleteAccount',
                 component: AccountDelete
-            },
-            {
-                path: 'auth/verify-email',
-                name: 'VerifyEmail',
-                component: EmailVerified
             },
             {
                 path: 'auth/reset-password',
