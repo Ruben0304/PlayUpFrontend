@@ -12,6 +12,7 @@ export class AuthService {
                         first_name: firstName,
                         last_name: lastName,
                     },
+                    emailRedirectTo: `${window.location.origin}/email-verified`,
                 },
             });
 

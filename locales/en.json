@@ -93,6 +93,9 @@
     "sendResetLink": "Send Link",
     "verificationEmailSent": "Verification email sent. Please check your inbox.",
     "resetEmailSent": "Reset email sent. Please check your inbox.",
+    "emailVerified": "Email Verified!",
+    "emailVerifiedDescription": "Your email has been successfully verified.",
+    "goToApp": "Go to app",
     "errors": {
       "invalidCredentials": "Invalid email or password",
       "userExists": "An account with this email already exists",
@@ -185,5 +188,4 @@
   "addNewItemDescription": "Select the type of item you want to add to your dashboard.",
   "add": "Add",
   "accept": "Accept"
-
 }

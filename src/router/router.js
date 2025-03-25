@@ -16,6 +16,7 @@ import About from '../screens/AboutView.vue'
 import ContactView from "@/screens/ContactView.vue";
 import NotFound from "@/screens/error/NotFound.vue";
 import AccountDelete from "@/screens/AccountDelete.vue";
+import EmailVerified from "@/screens/EmailVerified.vue";
 
 const routes = [
     {
@@ -56,6 +57,19 @@ const routes = [
                 path: 'delete-account',
                 name: 'DeleteAccount',
                 component: AccountDelete
+            },
+            {
+                path: 'email-verified',
+                name: 'EmailVerified',
+                component: EmailVerified,
+                beforeEnter: (to, from, next) => {
+                    if (to.query.type === 'email_change' || to.query.type === 'signup') {
+                        history.replaceState({ redirectedFromEmailVerification: true }, '')
+                        next()
+                    } else {
+                        next('/')
+                    }
+                }
             },
         ]
     },

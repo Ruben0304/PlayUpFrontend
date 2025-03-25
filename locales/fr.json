@@ -91,8 +91,11 @@
     "resetPasswordTitle": "Réinitialiser le mot de passe",
     "resetPasswordDescription": "Entrez votre email et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
     "sendResetLink": "Envoyer le lien",
-    "verificationEmailSent": "Email de vérification envoyé. Veuillez vérifier votre boîte de réception.",
-    "resetEmailSent": "Email de réinitialisation envoyé. Veuillez vérifier votre boîte de réception.",
+    "verificationEmailSent": "E-mail de vérification envoyé. Veuillez vérifier votre boîte de réception.",
+    "resetEmailSent": "E-mail de réinitialisation envoyé. Veuillez vérifier votre boîte de réception.",
+    "emailVerified": "E-mail Vérifié !",
+    "emailVerifiedDescription": "Votre e-mail a été vérifié avec succès.",
+    "goToApp": "Aller à l'application",
     "errors": {
       "invalidCredentials": "Email ou mot de passe invalide",
       "userExists": "Un compte avec cet email existe déjà",

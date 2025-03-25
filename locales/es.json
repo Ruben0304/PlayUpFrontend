@@ -102,6 +102,9 @@
     "sendResetLink": "Enviar enlace",
     "verificationEmailSent": "Email de verificación enviado. Por favor revisa tu bandeja de entrada.",
     "resetEmailSent": "Email de restablecimiento enviado. Por favor revisa tu bandeja de entrada.",
+    "emailVerified": "¡Email Verificado!",
+    "emailVerifiedDescription": "Tu correo electrónico ha sido verificado satisfactoriamente.",
+    "goToApp": "Ir a la app",
     "errors": {
       "invalidCredentials": "Correo o contraseña inválidos",
       "userExists": "Ya existe una cuenta con este correo",
