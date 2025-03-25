@@ -1,28 +1,16 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-background-500">
     <div class="max-w-md w-full space-y-8 p-8">
-      <div class="text-center">
-        <h2 class="mt-6 text-3xl font-bold text-white">
-          {{ $t('auth.emailVerified') }}
-        </h2>
-        <p class="mt-2 text-sm text-gray-300">
-          {{ $t('auth.emailVerifiedDescription') }}
-        </p>
-      </div>
-      <div class="mt-8">
-        <router-link
-          to="/"
-          class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition duration-300 transform hover:scale-105"
+      <div class="text-center space-y-4">
+        <h1 class="text-3xl font-bold text-white">{{ $t('auth.emailVerified') }}</h1>
+        <p class="text-gray-300">{{ $t('auth.emailVerifiedSuccess') }}</p>
+        <button 
+          class="bg-red-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-600 transition-colors w-full"
+          @click="handleOpenApp"
         >
-          {{ $t('auth.goToApp') }}
-        </router-link>
+          {{ $t('auth.openApp') }}
+        </button>
       </div>
-      <button 
-        class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors"
-        @click="handleOpenApp"
-      >
-        {{ $t('auth.openApp') }}
-      </button>
     </div>
   </div>
 </template>
