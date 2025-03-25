@@ -61,15 +61,7 @@ const routes = [
             {
                 path: 'email-verified',
                 name: 'EmailVerified',
-                component: EmailVerified,
-                beforeEnter: (to, from, next) => {
-                    if (to.query.type === 'email_change' || to.query.type === 'signup') {
-                        history.replaceState({ redirectedFromEmailVerification: true }, '')
-                        next()
-                    } else {
-                        next('/')
-                    }
-                }
+                component: EmailVerified
             },
         ]
     },

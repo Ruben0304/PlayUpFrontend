@@ -22,15 +22,20 @@
 </template>
 
 <script setup>
-import { onBeforeMount } from 'vue'
-import { useRouter } from 'vue-router'
+import { onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
 
-onBeforeMount(() => {
-  // Verificar si viene de un redirect checando el objeto de history state
-  if (!history.state?.redirectedFromEmailVerification) {
-    // Si no viene de un redirect, redirigir a home
+onMounted(() => {
+  // Verificar los parámetros que envía Supabase
+  const hasEmailVerificationParams = route.hash.includes('access_token') || 
+                                   route.hash.includes('refresh_token') ||
+                                   route.hash.includes('type=signup') ||
+                                   route.hash.includes('type=email_change')
+  
+  if (!hasEmailVerificationParams) {
     router.replace('/')
   }
 })
