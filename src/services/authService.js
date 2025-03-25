@@ -1,5 +1,7 @@
 import supabase from '@/clients/supabase'
 
+const BASE_URL = process.env.VUE_APP_URL || window.location.origin
+
 // Auth functions
 export class AuthService {
     async signUp({email, password, firstName, lastName}) {
@@ -12,7 +14,7 @@ export class AuthService {
                         first_name: firstName,
                         last_name: lastName,
                     },
-                    emailRedirectTo: `${window.location.origin}/email-verified`,
+                    emailRedirectTo: `${BASE_URL}/auth/verify-email`,
                 },
             });
 
@@ -50,7 +52,7 @@ export class AuthService {
     async resetPassword(email) {
         try {
             const {error} = await supabase.auth.resetPasswordForEmail(email, {
-                redirectTo: `${window.location.origin}/reset-password`,
+                redirectTo: `${BASE_URL}/auth/reset-password`,
             });
             if (error) throw error;
             return {error: null};

@@ -59,9 +59,19 @@ const routes = [
                 component: AccountDelete
             },
             {
-                path: 'email-verified',
-                name: 'EmailVerified',
+                path: 'auth/verify-email',
+                name: 'VerifyEmail',
                 component: EmailVerified
+            },
+            {
+                path: 'auth/reset-password',
+                name: 'ResetPassword',
+                component: () => import('../screens/ResetPassword.vue')
+            },
+            {
+                path: 'auth/callback',
+                name: 'AuthCallback',
+                component: () => import('../screens/AuthCallback.vue')
             },
         ]
     },

@@ -17,6 +17,12 @@
           {{ $t('auth.goToApp') }}
         </router-link>
       </div>
+      <button 
+        class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors"
+        @click="handleOpenApp"
+      >
+        {{ $t('auth.openApp') }}
+      </button>
     </div>
   </div>
 </template>
@@ -39,4 +45,24 @@ onMounted(() => {
     router.replace('/')
   }
 })
+
+const handleOpenApp = () => {
+  // Deep link URL
+  const deepLink = 'playup://auth/verified'
+  
+  // Intentar abrir la app
+  window.location.href = deepLink
+  
+  // Si después de 1 segundo seguimos en la web, significa que la app no está instalada
+  setTimeout(() => {
+    if (document.hidden) return // Usuario ya fue a la app
+    
+    // Redirigir a stores según plataforma
+    if (/android/i.test(navigator.userAgent)) {
+      window.location.href = 'https://play.google.com/store/apps/details?id=com.playup.inc'
+    } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+      window.location.href = 'https://apps.apple.com/app/id6741330857' // Reemplazar con ID de App Store
+    }
+  }, 1000)
+}
 </script> 
