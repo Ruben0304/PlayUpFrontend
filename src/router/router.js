@@ -20,7 +20,7 @@ import EmailVerified from "@/screens/EmailVerified.vue";
 
 const routes = [
     {
-        path: '/email-verified',
+        path: '/auth/email-verified',
         name: 'EmailVerified',
         component: EmailVerified
     },
