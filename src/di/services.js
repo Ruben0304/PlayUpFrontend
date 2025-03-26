@@ -1,11 +1,12 @@
 // di/services.js
 import { TeamService } from '@/services/teamService'
 import { PlayerService } from '@/services/playerService'
-import {AuthService} from "@/services/authService";
-import {UserService} from "@/services/userService";
-import {TournamentService} from "@/services/tournamentService";
-import {OrganizationService} from "@/services/organizationService";
-import {CountryService} from "@/services/countryService";
+import { AuthService } from "@/services/authService";
+import { UserService } from "@/services/userService";
+import { TournamentService } from "@/services/tournamentService";
+import { OrganizationService } from "@/services/organizationService";
+import { CountryService } from "@/services/countryService";
+import { NewsService } from "@/services/newsService";
 
 export const servicesPlugin = {
     install: (app) => {
@@ -16,6 +17,7 @@ export const servicesPlugin = {
         const tournamentService = new TournamentService()
         const organizationService = new OrganizationService()
         const countryService = new CountryService()
+        const newsService = new NewsService()
 
         // Provide the services
         app.provide('tournamentService', tournamentService)
@@ -25,5 +27,6 @@ export const servicesPlugin = {
         app.provide('teamService', teamService)
         app.provide('playerService', playerService)
         app.provide('countryService', countryService)
+        app.provide('newsService', newsService)
     }
 }

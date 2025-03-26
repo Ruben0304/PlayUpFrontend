@@ -94,6 +94,7 @@ export class UserService {
         }
     }
 
+
     async acceptWaitlistUser(waitlistId) {
         try {
             console.log('Accepting user with RPC, waitlistId:', waitlistId);
@@ -112,6 +113,30 @@ export class UserService {
 
         } catch (error) {
             console.error('Error in RPC call:', error.message);
+            return { success: false, error: error.message };
+        }
+    }
+
+    async cancelWaitlistUser(waitlistId) {
+        try {
+            console.log('Canceling user by deleting waitlist entry, waitlistId:', waitlistId);
+
+            // Eliminar directamente el registro de la tabla organizer_waitlist
+            const { data, error } = await supabase
+                .from('organizer_waitlist')
+                .delete()
+                .eq('id', waitlistId);
+
+            if (error) {
+                console.error('Delete error:', error);
+                return { success: false, error: error.message };
+            }
+
+            console.log('Delete response:', data);
+            return { success: true, message: 'Usuario rechazado exitosamente' };
+
+        } catch (error) {
+            console.error('Error deleting waitlist entry:', error.message);
             return { success: false, error: error.message };
         }
     }

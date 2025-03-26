@@ -14,10 +14,10 @@
         <!-- Navigation links - Desktop -->
         <div class="flex-1 flex justify-center">
           <div class="hidden md:flex space-x-8">
-
-            <NavLink href="#tournaments" :icon="Trophy">{{ $t('tournaments') }}</NavLink>
-            <NavLink href="#features" :icon="Sparkles">{{ $t('features') }}</NavLink>
-            <NavLink href="#players" :icon="Users">{{ $t('players') }}</NavLink>
+            <NavLink href="/" :icon="Home">Inicio</NavLink>
+            <NavLink href="/tournaments" :icon="Trophy">{{ $t('tournaments') }}</NavLink>
+            <NavLink href="/news" :icon="Newspaper">Noticias</NavLink>
+            
 <!--            <NavLink href="#stats" :icon="BarChart2">{{ $t('stats') }}</NavLink>-->
           </div>
         </div>
@@ -70,7 +70,7 @@
 
 <script setup>
 import {ref} from 'vue'
-import {Sparkles, Trophy, Users, Menu, X} from 'lucide-vue-next'
+import {Sparkles, Trophy, Users, Menu, X,Newspaper,Home} from 'lucide-vue-next'
 import NavLink from './NavLinks.vue'
 import DownloadButton from './DownloadButton.vue'
 import LanguageSwitcher from './LenguajeSwitcher.vue'

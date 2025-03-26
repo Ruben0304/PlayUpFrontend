@@ -79,6 +79,15 @@
               <Check v-if="!processingIds.includes(item.waitlistId)" class="w-5 h-5"/>
               <span v-else class="w-5 h-5 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></span>
             </button>
+            <button
+                class="inline-flex items-center justify-center p-2 rounded-full text-red-600 hover:bg-red-50 transition-colors"
+                title="Rechazar"
+                @click="handleCancelUser(item.waitlistId)"
+                :disabled="processingIds.includes(item.waitlistId)"
+            >
+              <X v-if="!processingIds.includes(item.waitlistId)" class="w-5 h-5"/>
+              <span v-else class="w-5 h-5 border-2 border-red-600 border-t-transparent rounded-full animate-spin"></span>
+            </button>
           </td>
         </tr>
         </tbody>
@@ -90,7 +99,7 @@
 <script setup>
 import { ref, onMounted, inject, watch } from 'vue'
 import LoaderComponent from "@/components/LoaderComponent.vue"
-import { Check } from 'lucide-vue-next';
+import { Check, X } from 'lucide-vue-next';
 
 const userService = inject('userService')
 
@@ -132,6 +141,35 @@ const handleAcceptUser = async (waitlistId) => {
   } catch (err) {
     console.error('Error al aceptar usuario:', err)
     error.value = 'Error al aceptar usuario'
+  } finally {
+    // Remover ID de la lista de procesamiento
+    processingIds.value = processingIds.value.filter(id => id !== waitlistId)
+  }
+}
+
+const handleCancelUser = async (waitlistId) => {
+  try {
+    // Limpiar mensajes anteriores
+    error.value = null
+    successMessage.value = ''
+
+    // Añadir ID a la lista de procesamiento
+    processingIds.value.push(waitlistId)
+
+    console.log('Canceling user with ID:', waitlistId)
+    const result = await userService.cancelWaitlistUser(waitlistId)
+    console.log('Cancel result:', result)
+
+    if (result.success) {
+      successMessage.value = result.message || 'Usuario rechazado exitosamente'
+      // Recargar la lista después de rechazar
+      await loadWaitlistUsers()
+    } else {
+      error.value = result.error || 'Error al rechazar usuario'
+    }
+  } catch (err) {
+    console.error('Error al rechazar usuario:', err)
+    error.value = 'Error al rechazar usuario'
   } finally {
     // Remover ID de la lista de procesamiento
     processingIds.value = processingIds.value.filter(id => id !== waitlistId)

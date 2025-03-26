@@ -1,8 +1,8 @@
 <template>
-  <a :href="href" class="text-white hover:text-orange-500 transition-colors flex items-center">
+  <router-link :to=href  class="text-white hover:text-primary-500 transition-colors flex items-center">
     <component :is="icon" class="w-5 h-5 mr-2" />
     <slot></slot>
-  </a>
+  </router-link>
 </template>
 
 <script setup>

@@ -230,5 +230,223 @@
   "filterByStatus": "Filtrar por estado",
   "errorLoadingPlayerCount": "Error al cargar el conteo de jugadores",
   "playerCountByCountry": "Regiones más activas",
-  "playerCount": "Cantidad de Jugadores"
+  "playerCount": "Cantidad de Jugadores",
+  "privacy_policy": {
+    "title": "Política de Privacidad",
+    "last_update": "Última actualización: 3 de noviembre de 2023",
+    "intro": "La presente Política de Privacidad tiene como objetivo informar a los usuarios de la aplicación PlayUp (en adelante, \"la Aplicación\") sobre cómo se recopilan, utilizan y protegen sus datos personales. Valoramos la privacidad de nuestros usuarios y estamos comprometidos a garantizar la seguridad y confidencialidad de la información proporcionada. Al utilizar la Aplicación, usted acepta esta Política de Privacidad.",
+    "sections": {
+      "info_collected": {
+        "title": "1. Información que Recopilamos",
+        "registration_info": {
+          "title": "1.1. Información de Registro",
+          "content": "Cuando crea una cuenta en la Aplicación, podemos recopilar su nombre, dirección de correo electrónico, nombre de usuario y contraseña. Esta información es necesaria para brindarle acceso a los servicios y personalizar su experiencia."
+        },
+        "additional_info": {
+          "title": "1.2. Información Adicional",
+          "content": "Además, podemos recopilar información sobre su dispositivo móvil, como su modelo, sistema operativo y tipo de conexión. También podemos recopilar información sobre su ubicación si otorga permiso para ello."
+        }
+      },
+      "info_usage": {
+        "title": "2. Uso de la Información",
+        "service_provision": {
+          "title": "2.1. Proporcionar Servicios",
+          "content": "Utilizamos su información para brindarle servicios relacionados con PlayUp, como la visualización de partidos, resultados y estadísticas."
+        },
+        "communication": {
+          "title": "2.2. Comunicación",
+          "content": "Podemos enviarle notificaciones relacionadas con la Aplicación, como actualizaciones, cambios en los términos de uso o eventos deportivos relevantes."
+        },
+        "app_improvement": {
+          "title": "2.3. Mejora de la Aplicación",
+          "content": "Utilizamos la información para mejorar la funcionalidad y la experiencia del usuario en la Aplicación, así como para realizar análisis estadísticos."
+        },
+        "security": {
+          "title": "2.4. Seguridad",
+          "content": "Tomamos medidas para garantizar la seguridad de sus datos y la integridad de la Aplicación."
+        }
+      },
+      "info_sharing": {
+        "title": "3. Compartir Información",
+        "service_providers": {
+          "title": "3.1. Proveedores de Servicios",
+          "content": "Podemos compartir su información con proveedores de servicios que nos ayuden a operar y mejorar la Aplicación. Estos proveedores están obligados a mantener la confidencialidad de su información."
+        },
+        "legal_requirements": {
+          "title": "3.2. Requisitos Legales",
+          "content": "En caso de que la ley lo requiera, podemos divulgar su información personal a autoridades gubernamentales u otras entidades legales."
+        }
+      },
+      "data_retention": {
+        "title": "4. Retención de Datos",
+        "content": "Mantenemos su información personal durante el tiempo necesario para cumplir con los fines descritos en esta Política de Privacidad, a menos que la ley exija un período de retención más largo."
+      },
+      "user_rights": {
+        "title": "5. Sus Derechos",
+        "content": "Puede ejercer ciertos derechos con respecto a sus datos personales, incluyendo el acceso, rectificación, eliminación y portabilidad de sus datos. Para ejercer estos derechos o para realizar preguntas sobre nuestra Política de Privacidad, contáctenos a través de la información de contacto proporcionada al final de esta política."
+      },
+      "data_security": {
+        "title": "6. Seguridad de Datos",
+        "content": "Tomamos medidas razonables para proteger la información personal de los usuarios, pero no podemos garantizar su seguridad al 100%. Le recomendamos que tome medidas adicionales para proteger su información personal, como la elección de contraseñas seguras y la protección de su dispositivo."
+      },
+      "policy_changes": {
+        "title": "7. Cambios en la Política de Privacidad",
+        "content": "Nos reservamos el derecho de actualizar o modificar esta Política de Privacidad en cualquier momento. Cualquier cambio significativo será notificado a los usuarios a través de la Aplicación. Le recomendamos revisar esta Política de Privacidad periódicamente."
+      },
+      "contact": {
+        "title": "8. Contacto",
+        "content": "Si tiene preguntas o inquietudes relacionadas con esta Política de Privacidad, no dude en ponerse en contacto con nosotros a través de [dirección de correo electrónico o número de teléfono de contacto]."
+      }
+    },
+    "footer": "Al utilizar la Aplicación PlayUp, usted acepta esta Política de Privacidad. Le agradecemos su confianza y esperamos que disfrute de su experiencia en nuestra aplicación de fútbol."
+  },
+  "terms": {
+    "title": "Términos y Condiciones",
+    "last_update": "Última actualización: 3 de noviembre de 2023",
+    "intro": "Los siguientes Términos y Condiciones (en adelante, 'Términos') rigen el uso de la aplicación PlayUp. Al utilizar la Aplicación, usted acepta cumplir con estos Términos. Si no está de acuerdo, por favor no utilice la Aplicación.",
+    "sections": {
+      "usage": {
+        "title": "1. Uso de la Aplicación",
+        "proper_use": {
+          "title": "1.1. Uso Adecuado",
+          "content": "Usted se compromete a utilizar la Aplicación de manera legal y ética, sin infringir los derechos de terceros ni violar la ley."
+        },
+        "user_accounts": {
+          "title": "1.2. Cuentas de Usuario",
+          "content": "Al crear una cuenta en la Aplicación, usted es responsable de mantener la confidencialidad de su nombre de usuario y contraseña. Cualquier actividad realizada desde su cuenta se considerará realizada por usted."
+        }
+      },
+      "privacy": {
+        "title": "2. Privacidad",
+        "content": "Su uso de la Aplicación también está sujeto a nuestra Política de Privacidad, la cual regula la recopilación y el tratamiento de sus datos personales."
+      },
+      "content": {
+        "title": "3. Contenido de la Aplicación",
+        "ownership": {
+          "title": "3.1. Derechos de Propiedad",
+          "content": "Todos los derechos de propiedad intelectual de la Aplicación y su contenido son propiedad de PlayUp o de terceros."
+        },
+        "user_generated": {
+          "title": "3.2. Contenido Generado por el Usuario",
+          "content": "Si envía o publica contenido en la Aplicación, usted otorga a PlayUp una licencia no exclusiva para utilizar, reproducir, modificar y distribuir dicho contenido."
+        }
+      },
+      "updates": {
+        "title": "4. Actualizaciones y Cambios",
+        "content": "PlayUp se reserva el derecho de realizar actualizaciones y cambios en la Aplicación en cualquier momento."
+      },
+      "termination": {
+        "title": "5. Terminación",
+        "by_user": {
+          "title": "5.1. Terminación por Usted",
+          "content": "Puede dejar de utilizar la Aplicación en cualquier momento. Si tiene una cuenta de usuario, puede eliminarla siguiendo las instrucciones proporcionadas."
+        },
+        "by_playup": {
+          "title": "5.2. Terminación por PlayUp",
+          "content": "PlayUp se reserva el derecho de terminar su acceso a la Aplicación en caso de incumplimiento de estos Términos."
+        }
+      },
+      "liability": {
+        "title": "6. Limitación de Responsabilidad",
+        "content": "PlayUp no se hace responsable de ningún daño directo, indirecto, incidental, especial o punitivo resultante del uso de la Aplicación."
+      },
+      "changes": {
+        "title": "7. Cambios en los Términos y Condiciones",
+        "content": "PlayUp se reserva el derecho de actualizar o modificar estos Términos en cualquier momento. Los cambios significativos se notificarán a los usuarios a través de la Aplicación."
+      },
+      "law": {
+        "title": "8. Ley Aplicable",
+        "content": "Estos Términos se rigen por las leyes vigentes en [Jurisdicción]. Cualquier disputa se someterá a la jurisdicción exclusiva de los tribunales de [Jurisdicción]."
+      },
+      "contact": {
+        "title": "9. Contacto",
+        "content": "Si tiene preguntas o inquietudes sobre estos Términos y Condiciones, contáctenos a través de [correo electrónico o número de teléfono]."
+      }
+    }
+  },
+  "about_us": {
+    "who_we_are": {
+      "title": "¿Quiénes somos?",
+      "content": "Somos <strong>PlayUp</strong>, un grupo de jóvenes innovadores con el objetivo de desarrollar y ofrecer un servicio para todas aquellas personas que les gusta y les apasiona el deporte."
+    },
+    "what_we_offer": {
+      "title": "¿Qué ofrecemos?",
+      "content": "Ofrecemos una plataforma que reúne todas las características de un sitio de gestión de torneos y eventos de fútbol. Además de brindarles a aquellas personas que lo practican, un espacio para buscar torneos y guarda las estadísticas que va acumulando en cada una de sus participaciones."
+    },
+    "benefits": {
+      "title": "Beneficios",
+      "player": {
+        "title": "Jugador",
+        "description": "Este será capaz de almacenar un historial de datos con diversas estadísticas de cada jugador como:",
+        "stats": {
+          "goals": "Goles",
+          "assists": "Asistencias",
+          "red_cards": "Tarjetas Rojas",
+          "yellow_cards": "Tarjetas Amarillas"
+        },
+        "note": "🗒️ Cabe destacar que no todos los torneos suman puntos al historial, sólo torneos oficiales o verificados."
+      },
+      "organizer": {
+        "title": "Organizador",
+        "content": "Para este rol nuestra plataforma les ofrece un conjunto completo de herramientas para organizar sus torneos. Puede gestionar partidos y sus resultados, tener un control total de los equipos participantes. Además, permite tener un historial de los torneos realizados a lo largo del tiempo."
+      },
+      "sponsor": {
+        "title": "Patrocinador",
+        "content": "La plataforma también es de gran beneficio para los patrocinadores interesados en apoyar el deporte local. Les permite identificar torneos populares, equipos talentosos y jugadores destacados para patrocinar."
+      }
+    },
+    "vision": {
+      "title": "Nuestra Visión",
+      "content": "Además de ser un referente para los amantes del fútbol, aspiramos a fomentar una comunidad global de deportistas y aficionados, donde se promueva la sana competencia, el respeto y el amor por el fútbol."
+    },
+    "team": {
+      "title": "Nuestro Equipo",
+      "members": {
+        "alejandro": {
+          "name": "Alejandro Rodríguez Díaz",
+          "role": "Desarrollador Móvil",
+          "github": "ale24dev"
+        },
+        "ruben": {
+          "name": "Rubén Hernández Acevedo",
+          "role": "Desarrollador Web",
+          "github": "Ruben0304"
+        },
+        "andy": {
+          "name": "Andy Cabrera Gámez",
+          "role": "Community Manager",
+          "facebook": "Andy Cabrera"
+        }
+      }
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "questions": {
+        "free": {
+          "question": "¿Es gratuito el uso de la plataforma?",
+          "answer": "Sí, la plataforma es gratuita para los jugadores. Los organizadores pueden optar por el paquete premium para obtener características adicionales."
+        },
+        "join_tournament": {
+          "question": "¿Cómo puedo unirme a un torneo?",
+          "answer": "Una vez registrado, puedes crear un equipo, añadir jugadores y buscar torneos disponibles para unirte."
+        },
+        "create_tournament": {
+          "question": "¿Cómo puedo crear un torneo?",
+          "answer": "Como organizador, tendrás la opción de crear un nuevo torneo en tu panel de control."
+        },
+        "verify_results": {
+          "question": "¿Cómo se verifican los resultados de los partidos?",
+          "answer": "Los organizadores ingresan los resultados y nuestra plataforma los verifica."
+        },
+        "invite_friends": {
+          "question": "¿Puedo invitar a amigos a unirse a la plataforma?",
+          "answer": "Sí, puedes invitar a cuantos amigos desees a participar en torneos juntos."
+        },
+        "contact_support": {
+          "question": "¿Cómo puedo ponerme en contacto con el soporte?",
+          "answer": "Puedes contactarnos a través del formulario en la sección de soporte de la aplicación o en nuestra web."
+        }
+      }
+    }
+  }
 }
