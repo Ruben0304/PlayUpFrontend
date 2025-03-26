@@ -16,10 +16,13 @@ import About from '../screens/AboutView.vue'
 import ContactView from "@/screens/ContactView.vue";
 import NotFound from "@/screens/error/NotFound.vue";
 import AccountDelete from "@/screens/AccountDelete.vue";
-import FeedScreen from '@/screens/FeedScreen.vue'
-import TournamentView from '@/screens/TournamentView.vue'
 
 const routes = [
+    {
+        path: '/auth/email-verified',
+        name: 'EmailVerified',
+        component: EmailVerified
+    },
     {
         path: '/',
         component: LayoutMain,
@@ -58,16 +61,6 @@ const routes = [
                 path: 'delete-account',
                 name: 'DeleteAccount',
                 component: AccountDelete
-            },
-            {
-                path: 'news',
-                name: 'News',
-                component: FeedScreen
-            },
-            {
-                path: 'tournaments',
-                name: 'Tournaments',
-                component: TournamentView
             },
         ]
     },

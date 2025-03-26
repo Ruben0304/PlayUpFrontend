@@ -91,8 +91,11 @@
     "resetPasswordTitle": "Redefinir Senha",
     "resetPasswordDescription": "Insira seu email e enviaremos um link para redefinir sua senha.",
     "sendResetLink": "Enviar Link",
-    "verificationEmailSent": "Email de verificação enviado. Por favor, verifique sua caixa de entrada.",
-    "resetEmailSent": "Email de redefinição enviado. Por favor, verifique sua caixa de entrada.",
+    "verificationEmailSent": "E-mail de verificação enviado. Por favor, verifique sua caixa de entrada.",
+    "resetEmailSent": "E-mail de redefinição enviado. Por favor, verifique sua caixa de entrada.",
+    "emailVerified": "Email Verificado!",
+    "emailVerifiedSuccess": "Seu email foi verificado com sucesso.",
+    "goToApp": "Ir para o app",
     "errors": {
       "invalidCredentials": "Email ou senha inválidos",
       "userExists": "Já existe uma conta com este email",
