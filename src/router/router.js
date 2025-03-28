@@ -16,6 +16,9 @@ import About from '../screens/AboutView.vue'
 import ContactView from "@/screens/ContactView.vue";
 import NotFound from "@/screens/error/NotFound.vue";
 import AccountDelete from "@/screens/AccountDelete.vue";
+import EmailVerified from '@/screens/EmailVerified.vue'
+import TournamentView from '@/screens/TournamentView.vue'
+import FeedScreen from '@/screens/FeedScreen.vue'
 
 const routes = [
     {
@@ -61,6 +64,16 @@ const routes = [
                 path: 'delete-account',
                 name: 'DeleteAccount',
                 component: AccountDelete
+            },
+            {
+                path: 'tournaments',
+                name: 'Tournament',
+                component: TournamentView
+            },
+            {
+                path: 'news',
+                name: 'News',
+                component: FeedScreen
             },
         ]
     },

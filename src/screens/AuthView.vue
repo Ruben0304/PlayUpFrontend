@@ -20,9 +20,9 @@
         <h2 class="text-center text-4xl font-extrabold bg-gradient-to-r from-white to-primary-400 bg-clip-text text-transparent">
           {{ isLogin ? $t('auth.loginTitle') : $t('auth.registerTitle') }}
         </h2>
-        <p class="mt-2 text-center text-sm text-gray-400">
+        <!-- <p class="mt-2 text-center text-sm text-gray-400">
           {{ isLogin ? $t('auth.loginSubtitle') || 'Accede a tu cuenta' : $t('auth.registerSubtitle') || 'Crea una nueva cuenta' }}
-        </p>
+        </p> -->
       </div>
 
       <!-- Mensaje de error -->
@@ -232,7 +232,7 @@
           </div>
           <div class="relative flex justify-center">
             <span class="px-2 bg-gray-900/70 text-sm text-gray-400">
-              {{ isLogin ? $t('auth.orRegister') || 'O regístrate' : $t('auth.orLogin') || 'O inicia sesión' }}
+              <!-- {{ isLogin ? 'O regístrate' :  'O inicia sesión' }} -->
             </span>
           </div>
         </div>
