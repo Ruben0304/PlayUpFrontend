@@ -39,5 +39,6 @@ const menuItems = ref([
   { name: 'organizations', path: '/admin/organizations' },
   { name: 'tournaments', path: '/admin/tournaments' },
   { name: 'waitlist', path: '/admin/waitlist' },
+  { name: 'playerClaim', path: '/admin/playerClaims' },
 ]);
 </script>

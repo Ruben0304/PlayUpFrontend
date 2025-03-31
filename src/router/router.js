@@ -19,6 +19,7 @@ import AccountDelete from "@/screens/AccountDelete.vue";
 import EmailVerified from '@/screens/EmailVerified.vue'
 import TournamentView from '@/screens/TournamentView.vue'
 import FeedScreen from '@/screens/FeedScreen.vue'
+import PlayerClaimAdmin from '@/screens/admin/PlayerClaimAdmin.vue'
 
 const routes = [
     {
@@ -115,6 +116,11 @@ const routes = [
                 path: '/admin/waitlist',
                 name: 'AdminWaitlist',
                 component: AdminWaitlist
+            },
+            {
+                path: '/admin/playerClaims',
+                name: 'Player Claims',
+                component: PlayerClaimAdmin
             },
 
         ]
