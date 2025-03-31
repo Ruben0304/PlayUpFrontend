@@ -144,6 +144,7 @@
   "actions": "Acciones",
   "cancel": "Cancelar",
   "save": "Guardar",
+  "noDocument": "Sin documento",
   "deleteConfirmation": "¿Estás seguro de que quieres eliminar este elemento?",
   "ok": "Aceptar",
   "playerList": "Lista de Jugadores",

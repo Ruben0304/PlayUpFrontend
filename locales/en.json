@@ -135,6 +135,7 @@
   "actions": "Actions",
   "cancel": "Cancel",
   "save": "Save",
+  "noDocument": "No Document",
   "deleteConfirmation": "Are you sure you want to delete this item?",
   "ok": "OK",
   "playerList": "Player List",

@@ -80,6 +80,7 @@ export class PlayerService {
                     player (
                         id,
                         name,
+                        identification,
                         image,
                         position,
                         first_name
