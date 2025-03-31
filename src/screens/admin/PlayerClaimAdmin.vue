@@ -58,7 +58,10 @@
               <span v-else class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
                 {{ item.player.name.charAt(0).toUpperCase() }}
               </span>
-              <span class="ml-4">{{ item.player.name || item.player.first_name }}</span>
+              <div class="ml-4">
+                <div>{{ item.player.name || item.player.first_name }}</div>
+                <div class="text-sm text-gray-500">{{ item.player.identification || $t('noDocument') }}</div>
+              </div>
             </div>
           </td>
           <td class="px-6 py-4">
