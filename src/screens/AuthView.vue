@@ -434,6 +434,13 @@ const handleSubmit = async () => {
         email: email.value,
         password: password.value,
       });
+      
+      // Mostrar la estructura completa de la respuesta de Supabase
+      console.log('Respuesta completa de Supabase (login):', result);
+      if (result.data) {
+        console.log('Token de sesión:', result.data.session?.access_token);
+        console.log('Información del usuario:', result.data.user);
+      }
     } else {
       result = await auth.signUp({
         email: email.value,
@@ -441,6 +448,9 @@ const handleSubmit = async () => {
         firstName: firstName.value,
         lastName: lastName.value,
       });
+      
+      // Mostrar la estructura completa de la respuesta de registro
+      console.log('Respuesta completa de Supabase (registro):', result);
     }
 
     if (result.error) {
@@ -448,7 +458,7 @@ const handleSubmit = async () => {
     }
 
     if (!isLogin.value) {
-      successMessage.value = t('auth.verificationEmailSent'); // Usa t en lugar de $t
+      successMessage.value = t('auth.verificationEmailSent');
       resetForm();
     } else {
       // Si el login es exitoso, redirigir al dashboard

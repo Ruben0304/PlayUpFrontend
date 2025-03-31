@@ -27,14 +27,17 @@ export class AuthService {
 
     async signIn({email, password}) {
         try {
-            const {data, error} = await supabase.auth.signInWithPassword({
+            const response = await supabase.auth.signInWithPassword({
                 email,
                 password,
             });
-
-            if (error) throw error;
-            return {data, error: null};
+            
+            console.log('Respuesta directa de Supabase auth.signInWithPassword:', response);
+            
+            // Devolvemos la respuesta completa
+            return response;
         } catch (error) {
+            console.error('Error en signIn:', error);
             return {data: null, error};
         }
     }
