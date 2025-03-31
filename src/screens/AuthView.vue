@@ -437,10 +437,7 @@ const handleSubmit = async () => {
       
       // Mostrar la estructura completa de la respuesta de Supabase
       console.log('Respuesta completa de Supabase (login):', result);
-      if (result.data) {
-        console.log('Token de sesión:', result.data.session?.access_token);
-        console.log('Información del usuario:', result.data.user);
-      }
+     
     } else {
       result = await auth.signUp({
         email: email.value,

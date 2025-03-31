@@ -118,8 +118,19 @@
               @click="toggleLike(post)" 
               class="flex items-center mr-4 focus:outline-none group transition-all duration-200"
               :class="post.user_liked ? 'text-primary-500' : 'text-gray-400 hover:text-primary-500'"
+              :disabled="post.isLikeLoading"
             >
+              <div v-if="post.isLikeLoading" class="w-5 h-5 relative">
+                <div class="animate-ping absolute h-full w-full rounded-full bg-primary-400 opacity-75"></div>
+                <div class="relative rounded-full h-5 w-5 flex items-center justify-center">
+                  <Heart 
+                    :fill="post.user_liked ? '#F93D3D' : 'none'" 
+                    size="16"
+                  />
+                </div>
+              </div>
               <Heart 
+                v-else
                 :fill="post.user_liked ? '#F93D3D' : 'none'" 
                 size="20" 
                 class="transition-transform duration-200"
@@ -231,8 +242,7 @@
                   <p class="text-gray-300 text-sm">{{ comment.content }}</p>
                 </div>
                 <div class="flex items-center mt-1 ml-1 text-xs text-gray-500 space-x-3">
-                  <button class="hover:text-gray-300 transition-colors duration-200">Me gusta</button>
-                  <button class="hover:text-gray-300 transition-colors duration-200">Responder</button>
+                  <!-- Removed "Me gusta" and "Responder" buttons -->
                 </div>
               </div>
             </div>
@@ -344,6 +354,9 @@ const fetchPosts = async () => {
       if (!post.comments) {
         post.comments = [];
       }
+      
+      // Initialize like loading state
+      post.isLikeLoading = false;
     });
   } catch (err) {
     console.error('Error fetching posts:', err);
@@ -372,6 +385,12 @@ const formatDate = (dateString) => {
 
 // Toggle like on a post
 const toggleLike = async (post) => {
+  // Si ya está en proceso de carga, no hacer nada
+  if (post.isLikeLoading) return;
+  
+  // Establecer el estado de carga
+  post.isLikeLoading = true;
+  
   try {
     if (post.user_liked) {
       await newsService.unlikeNews(post.id);
@@ -387,6 +406,9 @@ const toggleLike = async (post) => {
     // Revert UI changes if API call fails
     post.user_liked = !post.user_liked;
     post.like_count += post.user_liked ? 1 : -1;
+  } finally {
+    // Quitar el estado de carga después de completar
+    post.isLikeLoading = false;
   }
 };
 

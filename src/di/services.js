@@ -17,7 +17,7 @@ export const servicesPlugin = {
         const tournamentService = new TournamentService()
         const organizationService = new OrganizationService()
         const countryService = new CountryService()
-        const newsService = new NewsService()
+        const newsService = new NewsService(authService)
 
         // Provide the services
         app.provide('tournamentService', tournamentService)
