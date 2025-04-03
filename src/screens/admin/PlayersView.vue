@@ -11,6 +11,15 @@
 <!--      </button>-->
     </div>
 
+    <!-- Filter toggle -->
+    <div class="mb-4 flex items-center">
+      <label class="inline-flex items-center cursor-pointer mr-4">
+        <input type="checkbox" v-model="showTestItems" class="sr-only peer">
+        <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-500"></div>
+        <span class="ml-3 text-sm font-medium text-gray-700">{{ $t('showTestItems') }}</span>
+      </label>
+    </div>
+
     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
       <!-- Loading state -->
       <LoaderComponent loading="loading" v-if="loading"/>
@@ -203,7 +212,7 @@
 </template>
 
 <script setup>
-import {ref, computed, onMounted, inject} from 'vue'
+import {ref, computed, onMounted, inject, watch} from 'vue'
 import {useI18n} from 'vue-i18n'
 import {
   User,
@@ -220,10 +229,12 @@ const playerService = inject('playerService')
 // Estado
 const dialog = ref(false)
 const players = ref([])
+const allPlayers = ref([]) // Store all players
 const editedIndex = ref(-1)
 const loading = ref(false)
 const saving = ref(false)
 const error = ref(null)
+const showTestItems = ref(false) // Toggle for showing test items
 
 const editedItem = ref({
   name: '',
@@ -271,7 +282,8 @@ async function loadPlayers() {
   loading.value = true
   error.value = null
   try {
-    players.value = await playerService.getAll()
+    allPlayers.value = await playerService.getAll()
+    filterPlayers()
   } catch (e) {
     error.value = t('errorLoadingPlayers')
     console.error('error loading players:', e)
@@ -279,6 +291,20 @@ async function loadPlayers() {
     loading.value = false
   }
 }
+
+// Filter players based on showTestItems toggle
+function filterPlayers() {
+  if (showTestItems.value) {
+    players.value = allPlayers.value
+  } else {
+    players.value = allPlayers.value.filter(player => !player.is_test)
+  }
+}
+
+// Watch for changes to showTestItems and update filtered players
+watch(showTestItems, () => {
+  filterPlayers()
+})
 
 function editItem(item) {
   editedIndex.value = players.value.indexOf(item)

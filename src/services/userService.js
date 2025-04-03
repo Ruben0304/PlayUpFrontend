@@ -14,7 +14,8 @@ export class UserService {
                 username: user.username,
                 is_banned: user.is_banned,
                 role: user.role_name,
-                login_count: user.login_count
+                login_count: user.login_count,
+                is_test: user.is_test
             }));
         } catch (error) {
             console.error('error fetching users with roles:', error.message);

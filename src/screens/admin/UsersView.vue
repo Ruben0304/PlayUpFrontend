@@ -5,7 +5,7 @@
     <div class="bg-white shadow-md rounded-lg overflow-hidden">
       <div class="p-4 bg-gray-50 border-b">
         <h2 class="text-xl font-semibold text-gray-700">{{ $t('userList') }}</h2>
-        <div class="mt-4">
+        <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-4">
           <input
               v-model="searchTerm"
               @input="debounceSearch"
@@ -13,6 +13,12 @@
               :placeholder="$t('searchUsers')"
               class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
           />
+          
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="checkbox" v-model="showTestItems" class="sr-only peer">
+            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-500"></div>
+            <span class="ml-3 text-sm font-medium text-gray-700">{{ $t('showTestItems') }}</span>
+          </label>
         </div>
       </div>
 
@@ -70,13 +76,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted, inject } from 'vue'
+import { ref, onMounted, inject, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LoaderComponent from "@/components/LoaderComponent.vue"
 import { Ban, Shield } from 'lucide-vue-next';
 
 const { t } = useI18n()
 const userService = inject('userService')
+
+// State
+const users = ref([])
+const allUsers = ref([]) // Store all users
+const loading = ref(false)
+const error = ref(null)
+const searchTerm = ref('')
+const showTestItems = ref(false) // Toggle for showing test items
 
 const isBanned = (item) => {
   return Boolean(item.is_banned);
@@ -101,24 +115,13 @@ const handleBanToggle = async (userId, is_banned) => {
   }
 };
 
-// State
-const users = ref([])
-const loading = ref(false)
-const error = ref(null)
-const searchTerm = ref('')
-
-const headers = [
-  { text: t('userName'), value: 'username' },
-  { text: t('userRole'), value: 'role' },
-  { text: '', value: '' }
-]
-
 // Methods
 async function loadUsers() {
   loading.value = true
   error.value = null
   try {
-    users.value = await userService.getAllUsersWithRoles(searchTerm.value)
+    allUsers.value = await userService.getAllUsersWithRoles(searchTerm.value)
+    filterUsers()
   } catch (e) {
     error.value = t('errorLoadingUsers')
     console.error('error loading users:', e)
@@ -126,6 +129,20 @@ async function loadUsers() {
     loading.value = false
   }
 }
+
+// Filter users based on showTestItems toggle and search term
+function filterUsers() {
+  if (showTestItems.value) {
+    users.value = allUsers.value
+  } else {
+    users.value = allUsers.value.filter(user => !user.is_test)
+  }
+}
+
+// Watch for changes to showTestItems and update filtered users
+watch(showTestItems, () => {
+  filterUsers()
+})
 
 // Debounce function
 function debounce(func, wait) {
