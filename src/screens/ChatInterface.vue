@@ -32,7 +32,7 @@
       <!-- Chat messages -->
       <div
           ref="messagesContainer"
-          class="flex-1 h-[calc(100%-8rem)] p-6 overflow-y-auto bg-gray-50"
+          class="flex-1 h-[calc(100%-8rem)] p-6 overflow-y-auto bg-gray-50 pb-24"
       >
         <div class="space-y-6">
           <div
@@ -110,7 +110,7 @@
       </div>
 
       <!-- Input area -->
-      <div class="absolute bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-100">
+      <div class="absolute bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-100 shadow-md">
         <div v-if="showCustomMessageWarning" class="mb-3 p-3 bg-amber-50 border border-amber-200 rounded-lg text-amber-700 text-sm animate-fade-in">
           <div class="flex items-center gap-2">
             <LucideAlertCircle class="h-4 w-4 flex-shrink-0" />
@@ -124,16 +124,38 @@
           </button>
         </div>
 
-        <div v-if="!showQuestionCategories" class="flex gap-3 items-center">
+        <!-- Selector de modo de entrada -->
+        <div class="flex mb-3 bg-gray-100 p-1 rounded-lg w-fit mx-auto">
+          <button 
+            @click="inputMode = 'text'"
+            :class="[
+              'px-4 py-1.5 text-sm font-medium rounded-md transition-all duration-200',
+              inputMode === 'text' ? 'bg-white shadow text-primary-600' : 'text-gray-600 hover:bg-gray-200'
+            ]"
+          >
+            Escribir
+          </button>
+          <button 
+            @click="openQuestionSelector"
+            :class="[
+              'px-4 py-1.5 text-sm font-medium rounded-md transition-all duration-200',
+              inputMode === 'select' ? 'bg-white shadow text-primary-600' : 'text-gray-600 hover:bg-gray-200'
+            ]"
+          >
+            Seleccionar
+          </button>
+        </div>
+
+        <!-- Entrada de texto -->
+        <div v-if="inputMode === 'text'" class="flex gap-3 items-center">
           <textarea
               v-model="input"
-              placeholder="Selecciona o escribe tu pregunta..."
-              @keydown.enter.prevent="checkCustomMessage"
-              @focus="showQuestionCategories = true"
+              placeholder="Escribe tu pregunta..."
+              @keydown.enter.prevent="sendMessage"
               class="flex-1 h-12 py-2 px-4 rounded-full border border-gray-200 resize-none focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 placeholder-gray-400 text-sm"
           ></textarea>
           <button
-              @click="checkCustomMessage"
+              @click="sendMessage"
               :disabled="!input.trim() || isLoading"
               class="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-md hover:shadow-lg"
           >
@@ -145,52 +167,84 @@
             </div>
           </button>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Categorías de preguntas -->
-        <div v-if="showQuestionCategories" class="question-categories animate-slide-up">
-          <div class="flex justify-between items-center mb-3">
-            <h3 class="text-sm font-medium text-gray-700">Selecciona una pregunta</h3>
-            <button 
-              @click="showQuestionCategories = false" 
-              class="p-1 text-gray-400 hover:text-gray-600 rounded-full transition-colors"
+  <!-- Modal de selector de preguntas -->
+  <Transition name="modal">
+    <div v-if="showQuestionModal" class="fixed inset-0 z-[60] flex items-center justify-center bg-black/50">
+      <div 
+        class="bg-white rounded-xl shadow-2xl w-[90%] max-w-md mx-4 max-h-[80vh] overflow-hidden animate-modal-in"
+        @click.stop
+      >
+        <div class="p-4 bg-primary-600 text-white">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold flex items-center gap-2">
+              <LucideHelpCircle class="h-5 w-5" />
+              Selecciona una pregunta
+            </h3>
+            <button
+              @click="showQuestionModal = false"
+              class="p-1 hover:bg-primary-700 rounded-full transition-colors"
             >
-              <LucideX class="h-4 w-4" />
+              <LucideX class="h-5 w-5" />
             </button>
           </div>
+        </div>
 
-          <div class="categories-container">
-            <div v-for="(category, idx) in questionCategories" :key="idx" class="category-item">
+        <div class="p-4">
+          <!-- Buscador de preguntas -->
+          <div class="mb-4 relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <LucideSearch class="h-4 w-4 text-gray-400" />
+            </div>
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Buscar pregunta..."
+              class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+          </div>
+
+          <div class="overflow-y-auto max-h-[50vh] pr-1">
+            <div v-for="(category, idx) in filteredCategories" :key="idx" class="mb-3">
               <button 
                 @click="toggleCategory(idx)"
-                class="category-header"
-                :class="{'active': expandedCategory === idx}"
+                class="w-full flex justify-between items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors text-left"
               >
-                <span class="font-medium">{{ category.name }}</span>
+                <span class="font-medium text-gray-800">{{ category.name }}</span>
                 <LucideChevronDown 
-                  class="h-4 w-4 transition-transform duration-300" 
+                  class="h-4 w-4 text-gray-500 transition-transform duration-300" 
                   :class="{'rotate-180': expandedCategory === idx}"
                 />
               </button>
               
               <div 
                 v-if="expandedCategory === idx" 
-                class="questions-list animate-fade-in"
+                class="mt-2 pl-2 space-y-1 animate-fade-in"
               >
                 <button 
                   v-for="(question, qIdx) in category.questions" 
                   :key="qIdx"
-                  @click="selectQuestion(question)"
-                  class="question-item"
+                  @click="selectQuestionFromModal(question)"
+                  class="w-full p-3 text-left rounded-lg hover:bg-primary-50 transition-colors text-sm text-gray-700 hover:text-primary-700 flex items-center"
                 >
+                  <LucideMessageSquare class="h-4 w-4 mr-2 text-gray-400" />
                   {{ question }}
                 </button>
               </div>
+            </div>
+
+            <div v-if="filteredCategories.length === 0" class="py-8 text-center text-gray-500">
+              <LucideSearchX class="h-12 w-12 mx-auto mb-3 text-gray-300" />
+              <p>No se encontraron preguntas que coincidan con tu búsqueda</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </Transition>
 
   <!-- Modal de feedback negativo -->
   <Transition name="modal">
@@ -278,7 +332,7 @@
 
 <script setup>
 import { inject } from 'vue';
-import { ref, reactive, watch, nextTick } from 'vue';
+import { ref, reactive, watch, nextTick, computed } from 'vue';
 
 import {
   LucideBot,
@@ -288,13 +342,23 @@ import {
   LucideThumbsUp,
   LucideThumbsDown,
   LucideAlertCircle,
-  LucideChevronDown
+  LucideChevronDown,
+  LucideHelpCircle,
+  LucideSearch,
+  LucideSearchX,
+  LucideMessageSquare
 } from 'lucide-vue-next';
 
 const isOpen = ref(false);
 const input = ref('');
 const messagesContainer = ref(null);
-const isLoading = ref(false); // Estado para controlar el loading
+const isLoading = ref(false);
+const inputMode = ref('text');
+
+// Estado para el modal de selección de preguntas
+const showQuestionModal = ref(false);
+const searchQuery = ref('');
+const expandedCategory = ref(null);
 
 const messages = reactive([
   {
@@ -333,10 +397,41 @@ const chatService = inject('chatService');
 // Obtener las categorías de preguntas del servicio
 const questionCategories = reactive(chatService.getQuestionCategories());
 
+// Filtrar categorías y preguntas según la búsqueda
+const filteredCategories = computed(() => {
+  if (!searchQuery.value.trim()) return questionCategories;
+  
+  const query = searchQuery.value.toLowerCase().trim();
+  
+  return questionCategories
+    .map(category => {
+      // Filtrar preguntas que coincidan con la búsqueda
+      const filteredQuestions = category.questions.filter(question => 
+        question.toLowerCase().includes(query)
+      );
+      
+      // Devolver la categoría solo si tiene preguntas que coincidan
+      if (filteredQuestions.length > 0) {
+        return {
+          ...category,
+          questions: filteredQuestions
+        };
+      }
+      return null;
+    })
+    .filter(Boolean); // Eliminar categorías sin preguntas coincidentes
+});
+
 // Estado para el selector de preguntas
-const showQuestionCategories = ref(false);
-const expandedCategory = ref(null);
 const showCustomMessageWarning = ref(false);
+
+// Función para abrir el selector de preguntas como modal
+const openQuestionSelector = () => {
+  inputMode.value = 'select';
+  showQuestionModal.value = true;
+  searchQuery.value = '';
+  expandedCategory.value = null;
+};
 
 // Función para alternar la visibilidad de una categoría
 const toggleCategory = (index) => {
@@ -347,26 +442,19 @@ const toggleCategory = (index) => {
   }
 };
 
-// Función para seleccionar una pregunta
-const selectQuestion = (question) => {
+// Función para seleccionar una pregunta desde el modal
+const selectQuestionFromModal = (question) => {
   input.value = question;
-  showQuestionCategories.value = false;
+  showQuestionModal.value = false;
+  inputMode.value = 'text'; // Volver al modo de texto después de seleccionar
   sendMessage();
 };
 
-// Función para verificar si el mensaje es personalizado
-const checkCustomMessage = () => {
-  if (!input.value.trim()) return;
-  
-  // Verificar si el mensaje está en la lista de preguntas predefinidas usando el servicio
-  const isPreDefinedQuestion = chatService.isPreDefinedQuestion(input.value);
-  
-  if (isPreDefinedQuestion) {
-    sendMessage();
-  } else {
-    showCustomMessageWarning.value = true;
-  }
-};
+// // Función para seleccionar una pregunta (mantener para compatibilidad)
+// const selectQuestion = (question) => {
+//   input.value = question;
+//   sendMessage();
+// };
 
 // Scroll al último mensaje cuando se añade uno nuevo
 watch(messages, async () => {
@@ -400,7 +488,7 @@ const sendMessage = async () => {
   try {
     const response = await chatService.sendMessage(userMessage);
 
-    // Add agent response
+    // Add agent response with the new response structure
     messages.push({
       role: 'agent',
       content: response.answer,
@@ -408,7 +496,8 @@ const sendMessage = async () => {
       isNew: true,
       feedback: null,
       feedbackDetails: null,
-      message_id: null
+      message_id: null,
+      category: response.category // Añadir la categoría de la respuesta
     });
   } catch (error) {
     console.error('Error al comunicarse con el chatbot:', error);
@@ -431,6 +520,25 @@ const sendMessage = async () => {
   setTimeout(() => {
     messages.forEach(msg => msg.isNew = false);
   }, 500);
+};
+
+// Función para manejar el feedback (necesitamos implementarla)
+const toggleFeedback = (index, type) => {
+  // Implementación pendiente
+  console.log(`Feedback ${type} para mensaje ${index}`);
+};
+
+// Funciones para el modal de feedback
+const closeFeedbackModal = () => {
+  showFeedbackModal.value = false;
+  selectedFeedbackOption.value = null;
+  customFeedback.value = '';
+};
+
+const submitFeedback = () => {
+  // Implementación pendiente
+  console.log('Feedback enviado:', selectedFeedbackOption.value, customFeedback.value);
+  closeFeedbackModal();
 };
 </script>
 
@@ -531,15 +639,16 @@ const sendMessage = async () => {
 /* Transición para el modal */
 .modal-enter-active,
 .modal-leave-active {
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
+  transform: scale(0.95);
 }
 
-/* Estilizar scrollbar */
+/* Estilizar scrollbar para el modal */
 .overflow-y-auto {
   scrollbar-width: thin;
   scrollbar-color: #3b82f6 transparent;
@@ -558,102 +667,20 @@ const sendMessage = async () => {
   border-radius: 3px;
 }
 
-/* Estilos para el loading de puntos */
-.loading-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-}
-
-.loading-dots .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  animation: dotPulse 1.5s infinite ease-in-out;
-}
-
-.loading-dots .dot:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.loading-dots .dot:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.loading-dots .dot:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes dotPulse {
-  0%, 100% {
-    transform: scale(0.7);
-    opacity: 0.5;
+/* Animación para los botones de categoría */
+@keyframes highlight {
+  0% {
+    background-color: transparent;
   }
   50% {
-    transform: scale(1);
-    opacity: 1;
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  100% {
+    background-color: transparent;
   }
 }
 
-/* Estilos para el selector de preguntas */
-.question-categories {
-  max-height: 300px;
-  overflow-y: auto;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.categories-container {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.category-item {
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.category-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 12px;
-  width: 100%;
-  text-align: left;
-  background-color: #f3f4f6;
-  transition: all 0.2s ease;
-}
-
-.category-header:hover {
-  background-color: #e5e7eb;
-}
-
-.category-header.active {
-  background-color: #dbeafe;
-  color: #2563eb;
-}
-
-.questions-list {
-  display: flex;
-  flex-direction: column;
-  padding: 4px;
-  background-color: #f9fafb;
-}
-
-.question-item {
-  padding: 8px 12px;
-  text-align: left;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  transition: all 0.2s ease;
-  color: #4b5563;
-}
-
-.question-item:hover {
-  background-color: #f3f4f6;
-  color: #2563eb;
+.category-highlight {
+  animation: highlight 1s ease;
 }
 </style>

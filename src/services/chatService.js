@@ -1,6 +1,6 @@
 export class ChatService {
     constructor() {
-        this.baseUrl = 'https://script.google.com/macros/s/AKfycbylyqIwGCDXFHEzXqDFKFS2_Jkv1TZZW-semzehGvrwAzpDAwGQ_mfGhTbRpzOGEOvM/exec';
+        this.baseUrl = 'https://script.google.com/macros/s/AKfycbwsAi9dZEz3WbnX5sSxHNyuYZlsvKPvIKJOHiYSwN3KjpxBm-rO8sM0C9rVt25-SGZp/exec';
         
         // Categorías de preguntas predefinidas
         this.questionCategories = [
