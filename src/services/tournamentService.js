@@ -52,6 +52,7 @@ export class TournamentService {
                     organization,
                     description,
                     banner_image,
+                    is_test,
                     organization (
                         name
                     ),
@@ -68,6 +69,7 @@ export class TournamentService {
                 created_at: tournament.created_at,
                 name: tournament.name,
                 logo: tournament.logo,
+                is_test: tournament.is_test,
                 organization: tournament.organization,
                 description: tournament.description,
                 banner_image: tournament.banner_image,
