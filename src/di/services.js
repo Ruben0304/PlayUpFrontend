@@ -7,6 +7,7 @@ import { TournamentService } from "@/services/tournamentService";
 import { OrganizationService } from "@/services/organizationService";
 import { CountryService } from "@/services/countryService";
 import { NewsService } from "@/services/newsService";
+import { ChatService } from '@/services/chatService'
 
 export const servicesPlugin = {
     install: (app) => {
@@ -18,6 +19,7 @@ export const servicesPlugin = {
         const organizationService = new OrganizationService()
         const countryService = new CountryService()
         const newsService = new NewsService(authService)
+        const chatService = new ChatService()
 
         // Provide the services
         app.provide('tournamentService', tournamentService)
@@ -28,5 +30,6 @@ export const servicesPlugin = {
         app.provide('playerService', playerService)
         app.provide('countryService', countryService)
         app.provide('newsService', newsService)
+        app.provide('chatService', chatService)
     }
 }
