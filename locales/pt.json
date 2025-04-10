@@ -187,5 +187,28 @@
   "addNewItem": "Adicionar Novo Item",
   "addNewItemDescription": "Selecione o tipo de item que deseja adicionar ao seu painel.",
   "add": "Adicionar",
-  "accept": "Aceitar"
+  "accept": "Aceitar",
+  "account_removal": {
+    "title": "Solicitação de Remoção de Conta",
+    "description": "Sua conta será permanentemente excluída de nossos registros. Esta ação não pode ser desfeita.",
+    "email_label": "Digite seu e-mail registrado",
+    "email_placeholder": "example@email.com.br",
+    "password_label": "Digite sua senha",
+    "password_placeholder": "Sua senha",
+    "delete_button": "Excluir Minha Conta",
+    "email_validation": {
+      "invalid": "Endereço de e-mail inválido",
+      "valid": "Endereço de e-mail válido"
+    },
+    "password_validation": {
+      "invalid": "A senha deve ter pelo menos 6 caracteres",
+      "valid": "Senha válida"
+    },
+    "modal": {
+      "title": "Confirmar Exclusão de Conta",
+      "confirmation": "Você tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita e todos os seus dados serão permanentemente removidos.",
+      "confirm_button": "Sim, Excluir Minha Conta"
+    },
+    "success_message": "Sua solicitação de exclusão de conta foi enviada. Processaremos em breve."
+  }
 }

@@ -187,5 +187,28 @@
   "addNewItem": "Ajouter un Nouvel Élément",
   "addNewItemDescription": "Sélectionnez le type d'élément que vous souhaitez ajouter à votre tableau de bord.",
   "add": "Ajouter",
-  "accept": "Accepter"
+  "accept": "Accepter",
+  "account_removal": {
+    "title": "Demande de Suppression de Compte",
+    "description": "Votre compte sera définitivement supprimé de nos registres. Cette action ne peut pas être annulée.",
+    "email_label": "Entrez votre email enregistré",
+    "email_placeholder": "example@email.fr",
+    "password_label": "Entrez votre mot de passe",
+    "password_placeholder": "Votre mot de passe",
+    "delete_button": "Supprimer Mon Compte",
+    "email_validation": {
+      "invalid": "Adresse email invalide",
+      "valid": "Adresse email valide"
+    },
+    "password_validation": {
+      "invalid": "Le mot de passe doit contenir au moins 6 caractères",
+      "valid": "Mot de passe valide"
+    },
+    "modal": {
+      "title": "Confirmer la Suppression du Compte",
+      "confirmation": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action ne peut pas être annulée et toutes vos données seront définitivement supprimées.",
+      "confirm_button": "Oui, Supprimer Mon Compte"
+    },
+    "success_message": "Votre demande de suppression de compte a été soumise. Nous la traiterons prochainement."
+  }
 }
