@@ -70,7 +70,8 @@ const routes = [
             {
                 path: 'remove-account',
                 name: 'RemoveAccount',
-                component: RemoveAccount
+                component: RemoveAccount,
+                meta: { requiresAuth: false }
             },
             {
                 path: 'tournaments',

@@ -57,6 +57,14 @@
             </div>
           </div>
           
+          <!-- Debug Info - Solo muestra valores de variables reactivas, no process.env directamente -->
+          <div v-if="isDevMode" class="bg-gray-700 p-3 rounded-md">
+            <p class="text-xs text-gray-300">Debug Info:</p>
+            <p class="text-xs text-gray-300">Email: {{ email }}</p>
+            <p class="text-xs text-gray-300">Valid: {{ isValidEmail }}</p>
+            <p class="text-xs text-gray-300">Environment: {{ environment }}</p>
+          </div>
+          
           <div v-if="error" class="text-red-500 text-sm py-2">
             {{ error }}
           </div>
@@ -93,7 +101,7 @@
             class="flex-1 px-4 py-2 bg-gray-600 text-white rounded font-medium transition-colors hover:bg-gray-700"
             :disabled="loading"
           >
-            {{ $t('common.cancel') }}
+            {{ $t('common.cancel') || 'Cancel' }}
           </button>
           <button 
             @click="processAccountDeletion" 
@@ -105,9 +113,9 @@
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              {{ $t('auth.loading') }}
+              {{ $t('auth.loading') || 'Loading...' }}
             </span>
-            <span v-else>{{ $t('account_removal.modal.confirm_button') }}</span>
+            <span v-else>{{ $t('account_removal.modal.confirm_button') || 'Yes, Delete My Account' }}</span>
           </button>
         </div>
       </div>
@@ -124,10 +132,10 @@
           </div>
         </div>
         
-        <h3 class="text-xl font-bold text-white mb-2 text-center">{{ $t('account_removal.error.title') }}</h3>
+        <h3 class="text-xl font-bold text-white mb-2 text-center">{{ $t('account_removal.error.title') || 'Error' }}</h3>
         
         <p class="text-gray-300 mb-6 text-center">
-          {{ errorMessage }}
+          {{ errorMessage || $t('account_removal.error.message') || 'An error occurred while trying to delete your account.' }}
         </p>
         
         <div class="flex justify-center">
@@ -135,7 +143,7 @@
             @click="closeErrorModal" 
             class="px-6 py-2 bg-gray-600 text-white rounded font-medium transition-colors hover:bg-gray-700"
           >
-            {{ $t('ok') }}
+            OK
           </button>
         </div>
       </div>
@@ -153,6 +161,19 @@ const { t } = useI18n()
 const router = useRouter()
 const authService = new AuthService()
 
+// Configuración del entorno de forma segura
+let devMode = false;
+let envName = 'production';
+try {
+  // Verificamos si process.env está disponible en tiempo de compilación
+  if (typeof process !== 'undefined' && process.env) {
+    devMode = process.env.NODE_ENV === 'development';
+    envName = process.env.NODE_ENV || 'production';
+  }
+} catch (e) {
+  console.warn('Cannot access environment variables');
+}
+
 const email = ref('')
 const password = ref('')
 const showModal = ref(false)
@@ -164,6 +185,8 @@ const isValidPassword = ref(false)
 const error = ref('')
 const errorMessage = ref('')
 const loading = ref(false)
+const isDevMode = ref(devMode)
+const environment = ref(envName)
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -200,6 +223,7 @@ const processAccountDeletion = async () => {
   error.value = ''
   
   try {
+    console.log('Procesando eliminación de cuenta para:', email.value)
     const { success, error: deleteError } = await authService.deleteAccount(email.value, password.value)
     
     if (!success) {
@@ -216,14 +240,14 @@ const processAccountDeletion = async () => {
     isValidPassword.value = false
     
     // Show success message and redirect to home
-    alert(t('account_removal.success_message'))
+    alert(t('account_removal.success_message') || 'Your account deletion request has been submitted.')
     router.push('/')
   } catch (err) {
     console.error('Error deleting account:', err)
     // Close confirmation modal
     showModal.value = false
     // Always use the translated error message
-    errorMessage.value = t('account_removal.error.message')
+    errorMessage.value = t('account_removal.error.message') || 'An error occurred while trying to delete your account.'
     showErrorModal.value = true
   } finally {
     loading.value = false
