@@ -210,6 +210,10 @@
       "confirmation": "Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently removed.",
       "confirm_button": "Yes, Delete My Account"
     },
+    "error": {
+      "title": "Error Deleting Account",
+      "message": "An error occurred while trying to delete your account. Please try again later or contact support."
+    },
     "success_message": "Your account deletion request has been submitted. We will process it shortly."
   }
 }

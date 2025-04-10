@@ -209,6 +209,10 @@
       "confirmation": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action ne peut pas être annulée et toutes vos données seront définitivement supprimées.",
       "confirm_button": "Oui, Supprimer Mon Compte"
     },
+    "error": {
+      "title": "Erreur lors de la Suppression du Compte",
+      "message": "Une erreur s'est produite lors de la tentative de suppression de votre compte. Veuillez réessayer plus tard ou contacter le support."
+    },
     "success_message": "Votre demande de suppression de compte a été soumise. Nous la traiterons prochainement."
   }
 }
