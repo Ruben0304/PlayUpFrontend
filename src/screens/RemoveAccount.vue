@@ -57,6 +57,10 @@
             </div>
           </div>
           
+          <div v-if="error" class="text-red-500 text-sm py-2">
+            {{ error }}
+          </div>
+          
           <div class="pt-2">
             <button 
               type="submit" 
@@ -87,14 +91,51 @@
           <button 
             @click="cancelDeletion" 
             class="flex-1 px-4 py-2 bg-gray-600 text-white rounded font-medium transition-colors hover:bg-gray-700"
+            :disabled="loading"
           >
             {{ $t('common.cancel') }}
           </button>
           <button 
             @click="processAccountDeletion" 
             class="flex-1 px-4 py-2 bg-red-600 text-white rounded font-medium transition-colors hover:bg-red-700"
+            :disabled="loading"
           >
-            {{ $t('account_removal.modal.confirm_button') }}
+            <span v-if="loading" class="flex items-center justify-center">
+              <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              {{ $t('auth.loading') }}
+            </span>
+            <span v-else>{{ $t('account_removal.modal.confirm_button') }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Error Modal -->
+    <div v-if="showErrorModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+      <div class="bg-gray-800 p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
+        <div class="flex items-center justify-center mb-4">
+          <div class="bg-red-500 rounded-full p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+        </div>
+        
+        <h3 class="text-xl font-bold text-white mb-2 text-center">{{ $t('account_removal.error.title') }}</h3>
+        
+        <p class="text-gray-300 mb-6 text-center">
+          {{ errorMessage }}
+        </p>
+        
+        <div class="flex justify-center">
+          <button 
+            @click="closeErrorModal" 
+            class="px-6 py-2 bg-gray-600 text-white rounded font-medium transition-colors hover:bg-gray-700"
+          >
+            {{ $t('ok') }}
           </button>
         </div>
       </div>
@@ -105,15 +146,24 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { AuthService } from '@/services/authService'
+import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
+const router = useRouter()
+const authService = new AuthService()
+
 const email = ref('')
 const password = ref('')
 const showModal = ref(false)
+const showErrorModal = ref(false)
 const emailTouched = ref(false)
 const passwordTouched = ref(false)
 const isValidEmail = ref(false)
 const isValidPassword = ref(false)
+const error = ref('')
+const errorMessage = ref('')
+const loading = ref(false)
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -133,6 +183,7 @@ const isFormValid = computed(() => {
 
 const confirmDeletion = () => {
   if (!isFormValid.value) return
+  error.value = ''
   showModal.value = true
 }
 
@@ -140,20 +191,42 @@ const cancelDeletion = () => {
   showModal.value = false
 }
 
-const processAccountDeletion = () => {
-  // Here you would typically send the deletion request to your backend
-  console.log('Account deletion confirmed for email:', email.value)
+const closeErrorModal = () => {
+  showErrorModal.value = false
+}
+
+const processAccountDeletion = async () => {
+  loading.value = true
+  error.value = ''
   
-  // Close modal and reset form
-  showModal.value = false
-  email.value = ''
-  password.value = ''
-  emailTouched.value = false
-  passwordTouched.value = false
-  isValidEmail.value = false
-  isValidPassword.value = false
-  
-  // Show success message or redirect
-  alert(t('account_removal.success_message'))
+  try {
+    const { success, error: deleteError } = await authService.deleteAccount(email.value, password.value)
+    
+    if (!success) {
+      throw deleteError
+    }
+    
+    // Close modal and reset form
+    showModal.value = false
+    email.value = ''
+    password.value = ''
+    emailTouched.value = false
+    passwordTouched.value = false
+    isValidEmail.value = false
+    isValidPassword.value = false
+    
+    // Show success message and redirect to home
+    alert(t('account_removal.success_message'))
+    router.push('/')
+  } catch (err) {
+    console.error('Error deleting account:', err)
+    // Close confirmation modal
+    showModal.value = false
+    // Always use the translated error message
+    errorMessage.value = t('account_removal.error.message')
+    showErrorModal.value = true
+  } finally {
+    loading.value = false
+  }
 }
 </script> 

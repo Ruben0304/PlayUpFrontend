@@ -475,6 +475,10 @@
       "confirmation": "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer y todos tus datos serán eliminados permanentemente.",
       "confirm_button": "Sí, Eliminar Mi Cuenta"
     },
+    "error": {
+      "title": "Error al Eliminar la Cuenta",
+      "message": "Ha ocurrido un error al intentar eliminar tu cuenta. Por favor, inténtalo de nuevo más tarde o contacta con soporte."
+    },
     "success_message": "Tu solicitud de eliminación de cuenta ha sido enviada. La procesaremos en breve."
   }
 }

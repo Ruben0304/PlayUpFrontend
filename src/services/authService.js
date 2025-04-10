@@ -61,6 +61,34 @@ export class AuthService {
         }
     }
 
+    async deleteAccount(email, password) {
+        try {
+            // Call the external API instead of using Supabase directly
+            // const response = await fetch('http://localhost:8000/api/v1/auth/remove-account', {
+            const response = await fetch('https://playup-backend.vercel.app/v1/auth/remove-account', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            });
+
+            // Check for HTTP errors
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Error deleting account');
+            }
+            
+            return { success: true, error: null };
+        } catch (error) {
+            console.error('Error deleting account:', error.message);
+            return { success: false, error };
+        }
+    }
+
     onAuthStateChange(callback) {
         return supabase.auth.onAuthStateChange(callback);
     }

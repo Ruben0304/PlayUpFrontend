@@ -209,6 +209,10 @@
       "confirmation": "Você tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita e todos os seus dados serão permanentemente removidos.",
       "confirm_button": "Sim, Excluir Minha Conta"
     },
+    "error": {
+      "title": "Erro ao Excluir Conta",
+      "message": "Ocorreu um erro ao tentar excluir sua conta. Por favor, tente novamente mais tarde ou entre em contato com o suporte."
+    },
     "success_message": "Sua solicitação de exclusão de conta foi enviada. Processaremos em breve."
   }
 }
