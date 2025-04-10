@@ -454,5 +454,28 @@
         }
       }
     }
+  },
+  "account_removal": {
+    "title": "Solicitud de Eliminación de Cuenta",
+    "description": "Tu cuenta será eliminada permanentemente de nuestros registros. Esta acción no se puede deshacer.",
+    "email_label": "Introduce tu correo electrónico registrado",
+    "email_placeholder": "ejemplo@email.com",
+    "password_label": "Introduce tu contraseña",
+    "password_placeholder": "Tu contraseña",
+    "delete_button": "Eliminar Mi Cuenta",
+    "email_validation": {
+      "invalid": "Correo electrónico no válido",
+      "valid": "Correo electrónico válido"
+    },
+    "password_validation": {
+      "invalid": "La contraseña debe tener al menos 6 caracteres",
+      "valid": "Contraseña válida"
+    },
+    "modal": {
+      "title": "Confirmar Eliminación de Cuenta",
+      "confirmation": "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer y todos tus datos serán eliminados permanentemente.",
+      "confirm_button": "Sí, Eliminar Mi Cuenta"
+    },
+    "success_message": "Tu solicitud de eliminación de cuenta ha sido enviada. La procesaremos en breve."
   }
 }

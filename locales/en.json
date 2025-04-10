@@ -188,5 +188,28 @@
   "addNewItem": "Add New Item",
   "addNewItemDescription": "Select the type of item you want to add to your dashboard.",
   "add": "Add",
-  "accept": "Accept"
+  "accept": "Accept",
+  "account_removal": {
+    "title": "Account Removal Request",
+    "description": "Your account will be permanently deleted from our records. This action cannot be undone.",
+    "email_label": "Enter your registered email",
+    "email_placeholder": "example@email.com",
+    "password_label": "Enter your password",
+    "password_placeholder": "Your password",
+    "delete_button": "Delete My Account",
+    "email_validation": {
+      "invalid": "Invalid email address",
+      "valid": "Valid email address"
+    },
+    "password_validation": {
+      "invalid": "Password must be at least 6 characters",
+      "valid": "Valid password"
+    },
+    "modal": {
+      "title": "Confirm Account Deletion",
+      "confirmation": "Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently removed.",
+      "confirm_button": "Yes, Delete My Account"
+    },
+    "success_message": "Your account deletion request has been submitted. We will process it shortly."
+  }
 }
