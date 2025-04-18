@@ -152,13 +152,23 @@
 </template>
 
 <script setup>
-import { ref, computed,inject } from 'vue'
+import { ref, computed, inject, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
 const router = useRouter()
-const authService = inject('authService')
+
+// Add safer service injection with fallback
+let authService
+try {
+  authService = inject('authService', null)
+  if (!authService) {
+    console.error('authService not provided')
+  }
+} catch (err) {
+  console.error('Error injecting authService:', err)
+}
 
 // // Configuración del entorno de forma segura
 // let devMode = false;
@@ -217,11 +227,25 @@ const closeErrorModal = () => {
   showErrorModal.value = false
 }
 
+// Add mounted hook to check services
+onMounted(() => {
+  if (!authService) {
+    error.value = 'Authentication service is not available. Please try again later.'
+    console.error('authService not available after component mount')
+  }
+})
+
+// Modify processAccountDeletion to handle missing service
 const processAccountDeletion = async () => {
   loading.value = true
   error.value = ''
   
   try {
+    // Check if authService exists before using it
+    if (!authService) {
+      throw new Error('Authentication service is not available')
+    }
+    
     console.log('Procesando eliminación de cuenta para:', email.value)
     const { success, error: deleteError } = await authService.deleteAccount(email.value, password.value)
     
@@ -252,4 +276,4 @@ const processAccountDeletion = async () => {
     loading.value = false
   }
 }
-</script> 
+</script>
