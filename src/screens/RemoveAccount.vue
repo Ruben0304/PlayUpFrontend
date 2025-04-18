@@ -58,12 +58,12 @@
           </div>
           
           <!-- Debug Info - Solo muestra valores de variables reactivas, no process.env directamente -->
-          <div v-if="isDevMode" class="bg-gray-700 p-3 rounded-md">
+          <!-- <div v-if="isDevMode" class="bg-gray-700 p-3 rounded-md">
             <p class="text-xs text-gray-300">Debug Info:</p>
             <p class="text-xs text-gray-300">Email: {{ email }}</p>
             <p class="text-xs text-gray-300">Valid: {{ isValidEmail }}</p>
             <p class="text-xs text-gray-300">Environment: {{ environment }}</p>
-          </div>
+          </div> -->
           
           <div v-if="error" class="text-red-500 text-sm py-2">
             {{ error }}
@@ -152,27 +152,26 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed,inject } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { AuthService } from '@/services/authService'
 import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
 const router = useRouter()
-const authService = new AuthService()
+const authService = inject('authService')
 
-// Configuración del entorno de forma segura
-let devMode = false;
-let envName = 'production';
-try {
-  // Verificamos si process.env está disponible en tiempo de compilación
-  if (typeof process !== 'undefined' && process.env) {
-    devMode = process.env.NODE_ENV === 'development';
-    envName = process.env.NODE_ENV || 'production';
-  }
-} catch (e) {
-  console.warn('Cannot access environment variables');
-}
+// // Configuración del entorno de forma segura
+// let devMode = false;
+// let envName = 'production';
+// try {
+//   // Verificamos si process.env está disponible en tiempo de compilación
+//   if (typeof process !== 'undefined' && process.env) {
+//     devMode = process.env.NODE_ENV === 'development';
+//     envName = process.env.NODE_ENV || 'production';
+//   }
+// } catch (e) {
+//   console.warn('Cannot access environment variables');
+// }
 
 const email = ref('')
 const password = ref('')
@@ -185,8 +184,8 @@ const isValidPassword = ref(false)
 const error = ref('')
 const errorMessage = ref('')
 const loading = ref(false)
-const isDevMode = ref(devMode)
-const environment = ref(envName)
+// const isDevMode = ref(false)
+// const environment = ref(envName)
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
