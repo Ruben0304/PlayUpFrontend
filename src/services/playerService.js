@@ -105,7 +105,7 @@ export class PlayerService {
 
     async approvePlayerClaim(requestId) {
         try {
-            const response = await fetch(`https://playup-backend.vercel.app/api/v1/claim/${requestId}/approve`, {
+            const response = await fetch(`https://playup-backend.vercel.app/api/v1/player/claim/${requestId}/approve`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ export class PlayerService {
 
     async rejectPlayerClaim(requestId) {
         try {
-            const response = await fetch(`https://playup-backend.vercel.app/api/v1/claim/${requestId}/reject`, {
+            const response = await fetch(`https://playup-backend.vercel.app/api/v1/player/claim/${requestId}/reject`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
