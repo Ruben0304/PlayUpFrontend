@@ -103,7 +103,7 @@ export class PlayerService {
         }
     }
 
-    async approvePlayerClaim(requestId, playerId, userId) {
+    async approvePlayerClaim(requestId) {
         try {
             const response = await fetch(`https://playup-backend.vercel.app/api/v1/claim/${requestId}/approve`, {
                 method: 'POST',
