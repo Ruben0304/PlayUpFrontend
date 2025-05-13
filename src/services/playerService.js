@@ -105,27 +105,20 @@ export class PlayerService {
 
     async approvePlayerClaim(requestId, playerId, userId) {
         try {
-            // Start a transaction
-            // 1. Update the player_claim_request status to approved (assuming 2 is for approved)
-            const { error: requestError } = await supabase
-                .from('player_claim_request')
-                .update({ status: 2 })
-                .eq('id', requestId);
-
-            if (requestError) throw requestError;
-
-            // 2. Update the player record to mark it as claimed and associate with the user
-            const { error: playerError } = await supabase
-                .from('player')
-                .update({ 
-                    is_claimed: true,
-                    user: userId 
-                })
-                .eq('id', playerId);
-
-            if (playerError) throw playerError;
-
-            return { success: true, message: 'Solicitud de reclamo aprobada exitosamente' };
+            const response = await fetch(`https://playup-backend.vercel.app/api/v1/claim/${requestId}/approve`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Error approving player claim');
+            }
+            
+            const data = await response.json();
+            return data;
         } catch (error) {
             console.error('error approving player claim:', error.message);
             return { success: false, error: error.message };
@@ -134,15 +127,20 @@ export class PlayerService {
 
     async rejectPlayerClaim(requestId) {
         try {
-            // Update the player_claim_request status to rejected (assuming 3 is for rejected)
-            const { error } = await supabase
-                .from('player_claim_request')
-                .update({ status: 3 })
-                .eq('id', requestId);
-
-            if (error) throw error;
-
-            return { success: true, message: 'Solicitud de reclamo rechazada exitosamente' };
+            const response = await fetch(`https://playup-backend.vercel.app/api/v1/claim/${requestId}/reject`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Error rejecting player claim');
+            }
+            
+            const data = await response.json();
+            return data;
         } catch (error) {
             console.error('error rejecting player claim:', error.message);
             return { success: false, error: error.message };
